@@ -1,0 +1,30 @@
+button
+  cursor: pointer
+
+button, input
+  font-family: inherit
+  font-weight: inherit
+  font-size: inherit
+  line-height: inherit
+  background-color: initial
+  color: inherit
+  outline: none
+  border: none
+  padding: 0
+  border-radius: 2px
+
+dialog
+  input, button
+    background: reduce(12)
+    box-sizing: border-box
+    padding: 0 1.2em
+  input
+    font-size: .8em
+    height: 3em
+  input:focus
+    box-shadow: 0 0 0px 2px $link-color inset
+  button
+    height: 2.4em
+    min-width: 5em
+  button:hover
+    background: reduce(20)

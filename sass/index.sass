@@ -1,0 +1,126 @@
+@import "./basic.sass", "./form.sass", "./dialog.sass", "./sidebar.sass"
+
+body > div
+  height: 100vh
+
+body > div, header, footer, main, aside, aside li, dialog div
+  display: flex
+
+body > div, article
+  overflow: hidden
+
+header, footer, aside, aside li, dialog main div
+  justify-content: space-between
+
+aside, main
+  flex-direction: column
+
+main
+  flex-grow: 1
+
+aside, main > header, time
+  flex-shrink: 0
+
+article, main > header
+  padding: .75em 2em
+
+aside header, aside li, footer
+  padding: .75em 1.5em
+
+header time
+  margin-left: .5em
+
+article
+  cursor: pointer
+
+article:hover, article.open
+  background: reduce(4)
+
+dialog main
+  padding: 1em 2.5em
+
+dialog main div
+  align-items: center
+  margin: .75em 0
+
+main header nav
+  margin: 0 -2.5em
+
+main header nav button
+  margin: 0 2.5em
+
+button, .sidebar nav span
+  transition: .2s opacity, .2s background
+  opacity: .75
+
+dialog button, button:hover
+  opacity: 1
+
+main > header, .sidebar header, .sidebar li
+  border-bottom: 1px solid reduce(12)
+
+article, .sidebar li
+  margin-top: -1px
+
+main button .fa
+  font-size: .85em
+
+.sidebar
+  box-shadow: -1px 0 reduce(12) inset
+
+.content
+  cursor: auto
+
+.content > header
+  margin: .75em 0
+  color: reduce(100)
+
+.content > div
+  margin: 1em 0
+
+.hover:not(:hover) .hide, .hover:hover .show
+  display: none
+
+.rotate:hover
+  transform: rotate(180deg)
+
+.danger, .cancel, .save, .subscribe:hover
+  transition: .2s
+
+.subscribe
+  transition: none
+
+.subscribe:hover
+  color: $green
+
+.danger:hover
+  background: $red
+
+.cancel:hover
+  background: $blue
+
+.save:hover
+  background: $green
+
+.icon, .favicon
+  margin: 0 1rem 0 0
+  width: .9em
+
+.clear:not(:only-of-type)
+  border-color: transparent
+
+.favicon
+  margin-bottom: -1px
+
+.full input
+  width: 100%
+
+.edit h2
+  margin-bottom: 1.25em
+
+.edit input, .edit button
+  color: #ccc
+  margin: .75em 0
+
+.edit button:hover
+  color: $light
