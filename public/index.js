@@ -951,7 +951,7 @@ const Login = props => function () {
 
 delegateEvents(["click"]);
 
-const _tmpl$$1 = template(`<main><h2>Settings</h2><div>Articles per feed<input type="text" min="1" max="200"></div><div>Update interval<input type="text" min="1" max="60"></div><div><button><span></span></button></div><div>Use cache<button><span></span></button></div><div>Dark menu<button><span></span></button></div></main>`);
+const _tmpl$$1 = template(`<main><h2>Settings</h2><div>Articles per feed<input type="text" min="1" max="200"></div><div>Update interval (minutes)<input type="text" min="1" max="60"></div><div><button><span></span></button></div><div>Use cache<button><span></span></button></div><div>Dark menu<button><span></span></button></div></main>`);
 
 const General = props => function () {
   const _el$ = _tmpl$$1.cloneNode(true),
