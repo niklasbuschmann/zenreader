@@ -3,10 +3,7 @@ const needle = require('needle');
 const feedparser = require('feedparser');
 const JSONStream = require('JSONStream');
 const es = require('event-stream');
-const createDOMPurify = require('dompurify');
-const undom = require('undom');
-
-const DOMPurify = createDOMPurify({document: undom()});
+const xss = require('xss');
 
 const parser = () => es.map((entry, callback) => {
   callback(null, {
@@ -15,7 +12,7 @@ const parser = () => es.map((entry, callback) => {
     link: entry.link,
     date: Date.parse(entry.date || entry.pubDate),
     id: crypto.createHash('sha256').update(entry.link).digest('base64').substring(0, 6),
-    content: DOMPurify.sanitize(entry.description || entry.summary, {ADD_TAGS: ['iframe'], FORBID_TAGS: ['style']})
+    content: xss(entry.description || entry.summary, {stripIgnoreTag: true, stripIgnoreTagBody: ['script', 'style']})
   });
 });
 
