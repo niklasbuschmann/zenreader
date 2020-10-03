@@ -1,6 +1,6 @@
 const rollup = require('rollup');
 const resolve = require('@rollup/plugin-node-resolve');
-const babel = require('rollup-plugin-babel');
+const babel = require('@rollup/plugin-babel');
 const scss = require('rollup-plugin-scss');
 
 rollup.watch({
@@ -11,11 +11,11 @@ rollup.watch({
       output: 'public/index.css',
       indentedSyntax: true
     }),
-    babel({
+    babel.babel({
       presets: [['babel-preset-solid']],
       exclude: 'node_modules/**'
     }),
-    resolve()
+    resolve.nodeResolve()
   ]
 }).on('event', function (event) {
   if (event.code === 'ERROR')
