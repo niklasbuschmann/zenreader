@@ -1,6 +1,6 @@
 import api from '../../api.jsx';
 
-const background = color => ({borderRadius: '2px', padding: '1em 1.5em', margin: '1.5em 0', background: color});
+const background = color => ({'border-radius': '2px', padding: '1em 1.5em', margin: '1.5em 0', background: color});
 
 const message = error => {
   if (!error)
@@ -19,7 +19,7 @@ const Login = props =>
     <Show when={props.error}>
       <div><input id="email" type="text" placeholder="Username" defaultValue={api.user.name} /></div>
       <div><input id="password" type="password" placeholder="Password" defaultValue={api.user.password} /></div>
-      <div style={{marginTop: '1.5em'}}><button title="Login" onClick={() => api.login(document.querySelector('#email').value, document.querySelector('#password').value)}><span className="icon fa fa-sign-in" /><span>Login</span></button></div>
+      <div style={{'margin-top': '1.5em'}}><button title="Login" onClick={() => api.login(document.querySelector('#email').value, document.querySelector('#password').value)}><span className="icon fa fa-sign-in" /><span>Login</span></button></div>
     </Show>
   </main>
 

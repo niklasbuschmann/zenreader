@@ -1,7 +1,7 @@
 import {parse, stringify} from '../../opml.jsx';
 import {Input, Output, Dropzone} from '../file.jsx';
 
-const dropzone = state => <p style={{background: state.drag ? '#222' : 'transparent', color: state.error ? '#f45' : (state.drag || state.success) ? '#0c6' : '#68f', border: '2px dashed', margin: '2em 0', padding: '1.5em', textAlign: 'center'}}>{state.error ? state.error : state.success ? 'Successfully imported OPML' : 'Drop opml here to import'}</p>;
+const dropzone = state => <p style={{background: state.drag ? '#222' : 'transparent', color: state.error ? '#f45' : (state.drag || state.success) ? '#0c6' : '#68f', border: '2px dashed', margin: '2em 0', padding: '1.5em', 'text-align': 'center'}}>{state.error ? state.error : state.success ? 'Successfully imported OPML' : 'Drop opml here to import'}</p>;
 
 const Feeds = props =>
   <main>
