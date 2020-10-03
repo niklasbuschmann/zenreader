@@ -14,14 +14,14 @@ const Data = () => {
   actions.configure = configure => setState({configure});
   actions.throwerror = error => {setState({error}); console.error(error)};
   actions.set = changed => {
-    setState({settings: Object.assign({}, state.settings, changed)});
+    setState('settings', changed);
     api.save('settings', state.settings).catch(actions.throwerror);
   };
   actions.update = (feed, updated) => {
     if (state.articles[feed.url] && state.settings.notify)
       api.notify(feed, updated.filter(article => state.articles[feed.url].every(current => current.id !== article.id)));
 
-    setState(state => {state.articles[feed.url] = updated});
+    setState('articles', feed.url, updated)
   };
   actions.fetch = () => Promise.all(state.feeds.map(feed => api
     .feeds(feed.url, state.settings.load)
@@ -40,11 +40,11 @@ const Data = () => {
   actions.replace = (updated, old) => actions.sync(updated.concat(state.feeds.filter(feed => feed !== old)));
   actions.upload = feeds => actions.sync(state.settings.overwrite ? feeds : feeds.concat(state.feeds));
   actions.mark = (id, isread) => {
-    setState(state => {state.read[id] = isread || undefined});
+    setState('read', id, isread || undefined);
     api.save('read', state.read).catch(actions.throwerror);
   };
   actions.markall = () => {
-    setState(state => {state.selected.flatMap(url => state.articles[url]).forEach(article => state.read[article.id] = true)});
+    state.selected.flatMap(url => state.articles[url]).forEach(article => setState('read', article.id, true))
     api.save('read', state.read).catch(actions.throwerror);
   };
 
