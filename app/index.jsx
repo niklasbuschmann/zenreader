@@ -1,5 +1,5 @@
 import { createState } from 'solid-js';
-import { render } from 'solid-js/dom';
+import { render } from 'solid-js/web';
 import api from './api.jsx';
 import init from './init.jsx';
 import App from './components/app.jsx';
