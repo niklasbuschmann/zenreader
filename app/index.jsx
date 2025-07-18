@@ -1,12 +1,12 @@
 import '../sass/index.sass'
-import { createState } from 'solid-js';
+import { createStore } from 'solid-js/store';
 import { render } from 'solid-js/web';
 import api from './api.jsx';
 import init from './init.jsx';
 import App from './components/app.jsx';
 
 const Data = () => {
-  const [state, setState] = createState(init);
+  const [state, setState] = createStore(init);
   const actions = {};
 
   actions.select = selected => setState({selected});

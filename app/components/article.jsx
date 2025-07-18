@@ -1,10 +1,10 @@
-import { createState } from 'solid-js';
+import { createStore } from 'solid-js/store';
 
 import Time from './time.jsx';
 import Favicon from './favicon.jsx';
 
 const Article = props => {
-  const [state, setState] = createState({open: false});
+  const [state, setState] = createStore({open: false});
   const close = isread => {state.open && props.mark(props.article.id, isread); setState({open: !state.open})};
 
   return <article className={state.open ? 'open' : ''} onClick={() => close(true)}>

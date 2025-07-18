@@ -1,4 +1,4 @@
-import { createState } from 'solid-js';
+import { createStore } from 'solid-js/store';
 
 const prevent = fn => event => {event.preventDefault(); fn(event)};
 
@@ -23,7 +23,7 @@ const Input = props => <span onClick={event => event.currentTarget.firstChild.cl
   </span>
 
 const Dropzone = props => {
-  const [state, setState] = createState({error: false, success: false, drag: false});
+  const [state, setState] = createStore({error: false, success: false, drag: false});
 
   const drop = event => parse(event.dataTransfer.files).forEach(file => file
     .then(props.handleData)
