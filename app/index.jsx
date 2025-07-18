@@ -1,4 +1,4 @@
-import '../sass/index.sass'
+import '../index.sass'
 import { createStore } from 'solid-js/store';
 import { render } from 'solid-js/web';
 import api from './api.jsx';

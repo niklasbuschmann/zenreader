@@ -23,19 +23,15 @@ const MenuItem = props =>
   </li>
 
 const Menu = props =>
-  <aside className={(props.invert && 'dark')}>
-    <div>
-      <header><button className="subscribe" onClick={() => props.edit({})}><span className="fa fa-rss icon" />Subscribe</button></header>
-      <nav>
-        <For each={[{name: "all feeds", urls: props.feeds.map(feed => feed.url)}].concat(tags(props.feeds))}>
-          {category => <Category title={category.name} selected={props.selected.length > 1 && props.selected.join() === category.urls.join()} key={category.name} select={() => props.select(category.urls)} count={category.urls.map(url => size(props.articles[url], props.read)).reduce((a, b) => a + b, 0)} />}
-        </For>
-        <For each={props.feeds}>
-          {feed => <MenuItem {...feed} selected={props.selected.length === 1 && props.selected[0] === feed.url} key={feed.url} select={() => props.select([feed.url])} count={size(props.articles[feed.url], props.read)} edit={event => {event.stopPropagation(); props.edit(feed) }}  />}
-        </For>
-      </nav>
-    </div>
-    <footer>
+  <aside className={'column shadow ' + (props.invert && 'dark')}>
+    <header><button className="subscribe" onClick={() => props.edit({})}><span className="fa fa-rss icon" />Subscribe</button></header>
+    <For each={[{name: "all feeds", urls: props.feeds.map(feed => feed.url)}].concat(tags(props.feeds))}>
+      {category => <Category title={category.name} selected={props.selected.length > 1 && props.selected.join() === category.urls.join()} key={category.name} select={() => props.select(category.urls)} count={category.urls.map(url => size(props.articles[url], props.read)).reduce((a, b) => a + b, 0)} />}
+    </For>
+    <For each={props.feeds}>
+      {feed => <MenuItem {...feed} selected={props.selected.length === 1 && props.selected[0] === feed.url} key={feed.url} select={() => props.select([feed.url])} count={size(props.articles[feed.url], props.read)} edit={event => {event.stopPropagation(); props.edit(feed) }}  />}
+    </For>
+    <footer className="flex">
       <button title="switch theme" onClick={() => props.set({dark: !props.dark})}><span className="fa fa-adjust" /></button>
       <button title="settings" onClick={() => props.configure('Login')}><span className={props.error ? 'fa fa-warning' : 'fa fa-cogs'} /></button>
     </footer>

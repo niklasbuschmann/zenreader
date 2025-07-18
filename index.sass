@@ -80,6 +80,14 @@ th, td
 thead, tr:hover td, tr:hover th
   background: reduce(12)
 
+article
+  cursor: pointer
+  &:hover, &.open
+    background: reduce(10)
+
+footer
+  margin-top: auto
+
 button, input
   all: unset
   transition: .2s
@@ -92,6 +100,7 @@ button
 aside
   background: reduce(10)
   li
+    display: flex
     margin: 0
     cursor: pointer
     align-items: center
@@ -116,7 +125,6 @@ dialog
   button, input
     background: reduce(16)
     border-radius: 2px
-    margin: .75em 0
     padding: .5em 1.2em
 
   button
@@ -126,3 +134,94 @@ dialog
 
   input:focus
     box-shadow: 0 0 0px 1.5px $blue inset
+
+
+.app > main
+  height: 100vh
+  width: calc(100vw - 20em)
+  box-shadow: 0 0 0 1px reduce(12)
+
+.app > aside
+  height: 100vh
+  width: 20em
+
+.flex
+  display: flex
+  justify-content: space-between
+
+.column
+  display: flex
+  flex-direction: column
+
+main.column > *
+  padding: .75em 2em
+
+aside.column > *
+  padding: .75em 1.5em
+
+.overflow
+  overflow: auto
+
+.center
+  text-align: center
+
+.grow
+  flex-grow: 1
+
+.icon
+  width: 2em
+
+.subscribe:hover
+  color: $green
+
+.red:hover, .red.selected
+  background: $red
+
+.blue:hover, .blue.selected
+  background: $blue
+
+.green:hover, .green.selected
+  background: $green
+
+.hover:not(:hover) .hide, .hover:hover .show
+  display: none
+
+.content
+  cursor: auto
+  > header
+    margin: .75em 0
+  a
+    color: $blue
+
+.shadow
+  > header, > article, > li
+    box-shadow: 0 0 0 .5px rgba(141.5, 142, 144.5, 0.18) inset
+
+.buttons
+  width: 9em
+
+.edit, .settings
+  border-radius: 3px
+  h2
+    font-weight: inherit
+    text-align: center
+  &, div, footer
+    display: flex
+    justify-content: space-between
+
+.edit
+  width: 40em
+  height: fit-content
+  input
+    width: 100%
+
+.settings
+  width: 48em
+  height: 30em
+  aside
+    width: 28%
+  div
+    align-items: center
+  button
+    text-align: center
+    min-width: 3em
