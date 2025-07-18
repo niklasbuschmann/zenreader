@@ -13,7 +13,7 @@ const message = error => {
 };
 
 const Login = props =>
-  <main className="full">
+  <main className="grow">
     <h2>Login</h2>
     <div style={background((!props.error || props.error.status === 401) ? '#46f' : '#f35')}>{message(props.error)}</div>
     <Show when={props.error}>

@@ -16,8 +16,8 @@ const articles = props => props.selected
   .sort((a, b) => b.date - a.date);
 
 const Articles = props =>
-  <div style={{overflow: 'scroll'}}>
-    <For each={articles(props)} fallback={<h2>{background(props)}</h2>}>
+  <div className="overflow">
+    <For each={articles(props)} fallback={<h2 className="center">{background(props)}</h2>}>
       {article => <Article article={article} isread={props.read[article.id]} layout={props.layout} key={article.id} mark={props.mark} />}
     </For>
   </div>

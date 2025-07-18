@@ -1,5 +1,5 @@
 const General = props =>
-  <main>
+  <main className="grow">
     <h2>Settings</h2>
     <div>Articles per feed<input type="text" min="1" max="200" value={props.settings.load} style={{width: '6.25em'}} onChange={event => props.set({load: event.target.value})} /></div>
     <div>Update interval (minutes)<input type="text" min="1" max="60" value={props.settings.frequency} style={{width: '6.25em'}} onChange={event => props.set({frequency: event.target.value})} /></div>

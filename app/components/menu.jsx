@@ -15,14 +15,15 @@ const Category = props =>
   </li>
 
 const MenuItem = props =>
-  <li className={'clear hover ' + (props.selected && 'selected')} onClick={props.select}>
-    <div><Favicon src={props.url} /><span>{props.title}</span></div>
+  <li className={'hover ' + (props.selected && 'selected')} onClick={props.select}>
+    <Favicon src={props.url} />
+    <span className="grow overflow">{props.title}</span>
     <span className="show"><span>{props.count || ''}</span></span>
     <button className="hide fa fa-pencil" onClick={props.edit} />
   </li>
 
 const Menu = props =>
-  <aside className={'sidebar ' + (props.invert && 'dark')} style={{width: '20em'}}>
+  <aside className={'sidebar ' + (props.invert && 'dark')}>
     <div>
       <header><button className="subscribe" onClick={() => props.edit({})}><span className="fa fa-rss icon" />Subscribe</button></header>
       <nav>
@@ -30,7 +31,7 @@ const Menu = props =>
           {category => <Category title={category.name} selected={props.selected.length > 1 && props.selected.join() === category.urls.join()} key={category.name} select={() => props.select(category.urls)} count={category.urls.map(url => size(props.articles[url], props.read)).reduce((a, b) => a + b, 0)} />}
         </For>
         <For each={props.feeds}>
-          {feed => <MenuItem {...feed} selected={props.selected.length === 1 && props.selected[0] === feed.url} key={feed.url} select={() => props.select([feed.url])} count={size(props.articles[feed.url], props.read)} edit={event => {event.stopPropagation(); props.edit(feed)}}  />}
+          {feed => <MenuItem {...feed} selected={props.selected.length === 1 && props.selected[0] === feed.url} key={feed.url} select={() => props.select([feed.url])} count={size(props.articles[feed.url], props.read)} edit={event => {event.stopPropagation(); props.edit(feed) }}  />}
         </For>
       </nav>
     </div>

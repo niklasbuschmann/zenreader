@@ -16,14 +16,14 @@ const nuke = () => {
 
 const Settings = props =>
   <dialog open onClick={() => props.configure(false)}>
-    <div className="dark settings" onClick={event => event.stopPropagation()} style={{width: '50em', height: '28em'}}>
-      <aside className="blue" style={{width: '13em'}}>
+    <div className="dark settings" onClick={event => event.stopPropagation()}>
+      <aside style={{width: '13em'}}>
         <nav>
           <For each={Object.keys(pages)}>
-           {key => <li className={props.configured === key && 'selected'} onClick={() => props.configure(key)}><span><span className={'icon fa ' + icons[key]} />{key}</span></li>}
+           {key => <li className={props.configured === key && 'blue selected'} onClick={() => props.configure(key)}><span><span className={'icon fa ' + icons[key]} />{key}</span></li>}
           </For>
         </nav>
-        <nav><li className="danger" onClick={nuke}><span><span className="fa fa-power-off icon" />Logout</span></li></nav>
+        <nav><li className="red" onClick={nuke}><span><span className="fa fa-power-off icon" />Logout</span></li></nav>
       </aside>
       {pages[props.configured](props)}
     </div>

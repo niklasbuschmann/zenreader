@@ -1,25 +1,20 @@
-@import "./basic.sass", "./form.sass", "./dialog.sass", "./sidebar.sass"
+@import "basic.sass"
 
-body > div
+#app
   height: 100vh
+  > main
+    justify-content: start
+    width: calc(100vw - 20em)
+    box-shadow: 0 0 0 1px reduce(12)
+  > aside
+    width: 20em
 
-body > div, header, footer, main, aside, aside li, dialog div
+#app, header, header nav, footer, main, aside, aside li, dialog div
   display: flex
-
-body > div, article
-  overflow: hidden
-
-header, footer, aside, aside li, dialog main div
   justify-content: space-between
 
 aside, main
   flex-direction: column
-
-main
-  flex-grow: 1
-
-aside, main > header, time
-  flex-shrink: 0
 
 article, main > header
   padding: .75em 2em
@@ -27,100 +22,72 @@ article, main > header
 aside header, aside li, footer
   padding: .75em 1.5em
 
-header time
-  margin-left: .5em
+main > header, article, aside header, #app > aside li
+  box-shadow: 0 0 0 .5px rgba(141.5, 142, 144.5, 0.18) inset
 
 article
   cursor: pointer
+  &:hover, &.open
+    background: reduce(10)
 
-article:hover, article.open
-  background: reduce(4)
+article > header time
+  flex-shrink: 0
+  color: reduce(100)
 
-dialog main
-  padding: 1em 2.5em
+dialog
+  main
+    padding: 1em 2.5em
+  h1, h2
+    font-weight: inherit
+    text-align: center
 
-dialog main div
-  align-items: center
-  margin: .75em 0
+.overflow
+  overflow: auto
 
-main header nav
-  margin: 0 -2.5em
+.center
+  text-align: center
 
-main header nav button
-  margin: 0 2.5em
+.grow
+  flex-grow: 1
 
-button, .sidebar nav span
-  transition: .2s opacity, .2s background
-  opacity: .75
-
-dialog button, button:hover
-  opacity: 1
-
-main > header, .sidebar header, .sidebar li
-  border-bottom: 1px solid reduce(12)
-
-article, .sidebar li
-  margin-top: -1px
-
-main button .fa
-  font-size: .85em
-
-.sidebar
-  box-shadow: -1px 0 reduce(12) inset
+.icon
+  width: 2em
 
 .content
   cursor: auto
-
-.content > header
-  margin: .75em 0
-  color: reduce(100)
-
-.content > div
-  margin: 1em 0
+  > header
+    margin: .75em 0
 
 .hover:not(:hover) .hide, .hover:hover .show
   display: none
 
-.rotate:hover
-  transform: rotate(180deg)
-
-.danger, .cancel, .save, .subscribe:hover
+.red, .blue, .green, .subscribe
   transition: .2s
-
-.subscribe
-  transition: none
 
 .subscribe:hover
   color: $green
 
-.danger:hover
+.red:hover, .red.selected
   background: $red
 
-.cancel:hover
+.blue:hover, .blue.selected
   background: $blue
 
-.save:hover
+.green:hover, .green.selected
   background: $green
 
-.icon, .favicon
-  margin: 0 1rem 0 0
-  width: .9em
+.buttons
+  width: 9em
 
-.clear:not(:only-of-type)
-  border-color: transparent
+.edit
+  width: 40em
+  height: fit-content
 
-.favicon
-  margin-bottom: -1px
-
-.full input
-  width: 100%
-
-.edit h2
-  margin-bottom: 1.25em
-
-.edit input, .edit button
-  color: #ccc
-  margin: .75em 0
-
-.edit button:hover
-  color: $light
+.settings
+  width: 50em
+  height: 28em
+  border-radius: 3px
+  div
+    align-items: center
+  button
+    min-width: 3em

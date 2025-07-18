@@ -7,6 +7,6 @@ const handle = event => {
   event.target.outerHTML = '<span class="icon fa fa-globe"></span>';
 };
 
-const Favicon = ({src}) => noicon.has(url(src)) ? <span className="icon fa fa-globe" /> : <img className="favicon" src={url(src)} onError={handle} />
+const Favicon = ({src}) => noicon.has(url(src)) ? <span className="icon fa fa-globe" /> : <img className="icon" src={url(src)} onError={handle} />
 
 export default Favicon;
