@@ -3,11 +3,9 @@ const compression = require('compression');
 const bodyParser = require('body-parser');
 const basicAuth = require('express-basic-auth');
 const storage = require('node-persist');
-const minimist = require('minimist');
 const feedapi = require('./feedapi.js');
 const users = require('./users.json');
 
-const args = minimist(process.argv);
 const app = express();
 
 storage.init();
@@ -39,6 +37,6 @@ app.put('/api/:key', function (req, res) {
 
 app.get('/feed/:url', feedapi);
 
-app.listen(args.port || process.env.PORT || 8080, function () {
+app.listen(process.argv[2] || process.env.PORT || 8080, function () {
   console.log('Listening on port ' + this.address().port);
 });

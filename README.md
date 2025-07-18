@@ -7,8 +7,8 @@ Make sure to have [git](https://git-scm.com/book/en/v2/Getting-Started-Installin
 ```
 git clone https://github.com/niklasbuschmann/zenreader.git
 cd zenreader
-npm install --production
-node server.js --port 8080
+npm install
+node server.js 8080
 ```
 
 **Users**
