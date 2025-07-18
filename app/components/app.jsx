@@ -5,7 +5,7 @@ import Edit from './edit.jsx';
 import Articles from './articles.jsx';
 
 const App = props =>
-  <div className="app flex" className={props.settings.dark ? 'dark' : 'light'} onDragOver={() => props.configure === 'Feeds' || props.actions.configure('Feeds')}>
+  <div className="app flex shadow" className={props.settings.dark ? 'dark' : 'light'} onDragOver={() => props.configure === 'Feeds' || props.actions.configure('Feeds')}>
     {props.editing && <Edit old={props.editing} replace={props.actions.replace} />}
     {props.configure && <Settings settings={props.settings} feeds={props.feeds} configure={props.actions.configure} configured={props.configure} error={props.error} set={props.actions.set} upload={props.actions.upload} throwerror={props.actions.throwerror} />}
     <Menu feeds={props.feeds} selected={props.selected} read={props.read} articles={props.articles} dark={props.settings.dark} invert={props.settings.invert} error={props.error} select={props.actions.select} edit={props.actions.edit} set={props.actions.set} configure={props.actions.configure} />
