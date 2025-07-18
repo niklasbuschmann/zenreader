@@ -1,3 +1,4 @@
+import '../sass/index.sass'
 import { createState } from 'solid-js';
 import { render } from 'solid-js/web';
 import api from './api.jsx';

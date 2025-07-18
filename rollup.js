@@ -4,8 +4,8 @@ const babel = require('@rollup/plugin-babel');
 const scss = require('rollup-plugin-scss');
 
 rollup.watch({
-  input: ['app/index.jsx', 'sass/index.sass'],
-  output: {dir: 'public/', format: 'esm'},
+  input: 'app/index.jsx',
+  output: {dir: 'public'},
   plugins: [
     scss({
       fileName: 'index.css',
