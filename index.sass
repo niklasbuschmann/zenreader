@@ -139,7 +139,6 @@ dialog
 .app > main
   height: 100vh
   width: calc(100vw - 20em)
-  box-shadow: 0 0 0 1px reduce(12)
 
 .app > aside
   height: 100vh
@@ -193,9 +192,8 @@ aside.column > *
   a
     color: $blue
 
-.shadow
-  > header, > article, > li
-    box-shadow: 0 0 0 .5px rgba(141.5, 142, 144.5, 0.18) inset
+.shadow, .shadow > *
+  box-shadow: -1px 1px 0 0 rgba(141.5, 142, 144.5, 0.18)
 
 .buttons
   width: 9em
