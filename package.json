@@ -17,14 +17,14 @@
   },
   "homepage": "https://github.com/niklasbuschmann/zenreader#readme",
   "devDependencies": {
-    "@babel/core": "^7.12.13",
-    "@rollup/plugin-babel": "^5.2.3",
-    "@rollup/plugin-node-resolve": "^11.1.1",
+    "@babel/core": "^7.28.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "babel-preset-solid": "^0.24.2",
     "rollup": "^2.38.5",
     "rollup-plugin-scss": "^4.0.1",
     "sass": "^1.89.2",
-    "solid-js": "^0.24.2"
+    "solid-js": "^0.26.0"
   },
   "dependencies": {
     "body-parser": "^2.2.0",
