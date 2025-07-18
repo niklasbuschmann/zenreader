@@ -11,7 +11,7 @@ const About = props =>
         <span>&nbsp; with &nbsp;</span>
         <strong style={{color: '#f45'}}>&lt;3</strong>
       </span>
-      <a href="https://github.com/niklasbuschmann" style={{'color': 'inherit'}}>Niklas Buschmann</a>
+      <a href="https://github.com/niklasbuschmann">Niklas Buschmann</a>
       <span>2020</span>
     </footer>
   </main>

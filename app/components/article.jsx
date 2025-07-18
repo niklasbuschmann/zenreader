@@ -9,7 +9,7 @@ const Article = props => {
 
   return <article className={state.open ? 'open' : ''} onClick={() => close(true)}>
     <header>
-      <span><Favicon src={props.article.link} /><a href={props.article.link} style={{color: props.isread ? 'gray' : 'inherit'}} onClick={() => close(true)} target="_blank">{props.article.title}</a></span>
+      <span><Favicon src={props.article.link} /><a href={props.article.link} style={{opacity: props.isread ? '0.6' : '1'}} onClick={() => close(true)} target="_blank">{props.article.title}</a></span>
       <Time time={new Date(props.article.date)} />
     </header>
     <Show when={state.open || props.layout}>
