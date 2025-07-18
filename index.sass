@@ -135,13 +135,13 @@ dialog
   input:focus
     box-shadow: 0 0 0px 1.5px $blue inset
 
+.app
+  height: 100vh
 
 .app > main
-  height: 100vh
   width: calc(100vw - 20em)
 
 .app > aside
-  height: 100vh
   width: 20em
 
 .flex
@@ -157,33 +157,6 @@ main.column > *
 
 aside.column > *
   padding: .75em 1.5em
-
-.overflow
-  overflow: auto
-
-.center
-  text-align: center
-
-.grow
-  flex-grow: 1
-
-.icon
-  width: 2em
-
-.subscribe:hover
-  color: $green
-
-.red:hover, .red.selected
-  background: $red
-
-.blue:hover, .blue.selected
-  background: $blue
-
-.green:hover, .green.selected
-  background: $green
-
-.hover:not(:hover) .hide, .hover:hover .show
-  display: none
 
 .content
   cursor: auto
@@ -223,3 +196,30 @@ aside.column > *
   button
     text-align: center
     min-width: 3em
+
+.overflow
+  overflow: auto
+
+.center
+  text-align: center
+
+.grow
+  flex-grow: 1
+
+.icon
+  width: 2em
+
+.subscribe:hover
+  color: $green
+
+.red:hover, .red.selected
+  background: $red
+
+.blue:hover, .blue.selected
+  background: $blue
+
+.green:hover, .green.selected
+  background: $green
+
+.hover:not(:hover) .hide, .hover:hover .show
+  display: none
