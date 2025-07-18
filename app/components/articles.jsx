@@ -17,9 +17,9 @@ const articles = props => props.selected
 
 const Articles = props =>
   <div className="overflow">
-    <For each={articles(props)} fallback={<h2 className="center">{background(props)}</h2>}>
-      {article => <Article article={article} isread={props.read[article.id]} layout={props.layout} key={article.id} mark={props.mark} />}
-    </For>
+    <Index each={articles(props)} fallback={<h2 className="center">{background(props)}</h2>}>
+      {article => <Article article={article()} isread={props.read[article().id]} layout={props.layout} key={article().id} mark={props.mark} />}
+    </Index>
   </div>
 
 export default Articles;
