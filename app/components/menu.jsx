@@ -10,8 +10,9 @@ const size = (articles, read) => (articles || []).filter(article => !read[articl
 
 const Category = props =>
   <li className={'hover ' + (props.selected && 'selected')} onClick={props.select}>
-    <div><span className="icon fa fa-folder" /><span>{props.title}</span></div>
-    <span><span>{props.count || ''}</span></span>
+    <span className="icon fa fa-folder" />
+    <span className="grow">{props.title}</span>
+    <span>{props.count || ''}</span>
   </li>
 
 const MenuItem = props =>
