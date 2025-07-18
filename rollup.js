@@ -8,7 +8,7 @@ rollup.watch({
   output: {dir: 'public/', format: 'esm'},
   plugins: [
     scss({
-      output: 'public/index.css',
+      fileName: 'index.css',
       indentedSyntax: true
     }),
     babel.babel({
