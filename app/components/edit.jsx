@@ -9,8 +9,8 @@ const Edit = props =>
     <div className="dark edit" onClick={event => event.stopPropagation()}>
       <main className="grow">
         <h2>{props.old.title || 'Subscribe'}</h2>
-        <input id="title" placeholder="Title" type="text" value={props.old.title} />
-        <input id="url" placeholder="Link" type="url" value={props.old.url} />
+        <input id="title" placeholder="Title" type="text" value={props.old.title || ''} />
+        <input id="url" placeholder="Link" type="url" value={props.old.url || ''} />
         <input id="tags" placeholder="Tags" type="text" value={props.old.tags ? props.old.tags.join(', ') : ''} />
         <div style={{margin: '1em 0 .5em'}}>
           <span><button className="red" onClick={() => props.replace([], props.old)}><span className="icon fa fa-trash" />Delete</button></span>
