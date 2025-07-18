@@ -9,7 +9,8 @@ rollup.watch({
   plugins: [
     scss({
       fileName: 'index.css',
-      indentedSyntax: true
+      indentedSyntax: true,
+      watch: 'sass'
     }),
     babel.babel({
       presets: [['babel-preset-solid']],
