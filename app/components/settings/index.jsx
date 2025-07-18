@@ -17,7 +17,7 @@ const nuke = () => {
 const Settings = props =>
   <dialog open onClick={() => props.configure(false)}>
     <div className="dark settings" onClick={event => event.stopPropagation()}>
-      <aside style={{width: '13em'}}>
+      <aside>
         <nav>
           <For each={Object.keys(pages)}>
            {key => <li className={props.configured === key && 'blue selected'} onClick={() => props.configure(key)}><span><span className={'icon fa ' + icons[key]} />{key}</span></li>}

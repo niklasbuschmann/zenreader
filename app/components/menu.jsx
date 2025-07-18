@@ -23,7 +23,7 @@ const MenuItem = props =>
   </li>
 
 const Menu = props =>
-  <aside className={'sidebar ' + (props.invert && 'dark')}>
+  <aside className={(props.invert && 'dark')}>
     <div>
       <header><button className="subscribe" onClick={() => props.edit({})}><span className="fa fa-rss icon" />Subscribe</button></header>
       <nav>
