@@ -16,10 +16,7 @@ const articles = props => props.selected
   .sort((a, b) => b.date - a.date);
 
 const Articles = props =>
-  <div className="overflow">
-    <Index each={articles(props)} fallback={<h2 className="center">{background(props)}</h2>}>
-      {article => <Article article={article()} isread={props.read[article().id]} layout={props.layout} key={article().id} mark={props.mark} />}
-    </Index>
-  </div>
-
+  <Index each={articles(props)} fallback={<h2 className="center">{background(props)}</h2>}>
+    {article => <Article article={article()} isread={props.read[article().id]} layout={props.layout} key={article().id} mark={props.mark} />}
+  </Index>
 export default Articles;
