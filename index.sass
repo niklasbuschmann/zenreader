@@ -82,7 +82,7 @@ thead, tr:hover td, tr:hover th
 
 article
   cursor: pointer
-  &:hover, &.open
+  &:hover
     background: reduce(10)
 
 footer
@@ -127,22 +127,20 @@ dialog
     border-radius: 2px
     padding: .5em 1.2em
 
-  button
-    &:hover
-      background: reduce(40)
-      color: inherit
+  button:hover
+    background: reduce(40)
+    color: inherit
 
   input:focus
     box-shadow: 0 0 0px 1.5px $blue inset
 
-.app
+.main
   height: 100vh
 
-.app > aside
+.sidebar
   width: 20em
-
-.app > main
-  width: calc(100vw - 20em)
+  flex-shrink: 0
+  border-right: 1px solid reduce(18)
 
 .flex
   display: flex
@@ -152,19 +150,15 @@ dialog
   display: flex
   flex-direction: column
 
-main.column > *
+.main header
   padding: .75em 2em
 
-aside.column > *
+aside header, aside li, aside footer
   padding: .75em 1.5em
 
-.shadow > *
-  box-shadow: -1px 1px 0 0 reduce(18)
-
 .content
+  margin: 0 2em
   cursor: auto
-  > header
-    margin: .75em 0
   a
     color: $blue
 
@@ -176,6 +170,9 @@ aside.column > *
   h2
     font-weight: inherit
     text-align: center
+  div
+    align-items: center
+    margin: .75em 2em
   &, div, footer
     display: flex
     justify-content: space-between
@@ -190,9 +187,7 @@ aside.column > *
   width: 48em
   height: 30em
   aside
-    width: 28%
-  div
-    align-items: center
+    width: 13em
   button
     text-align: center
     min-width: 3em
@@ -202,10 +197,13 @@ aside.column > *
 
 .center
   text-align: center
-  box-shadow: none
 
 .grow
   flex-grow: 1
+
+.shadow
+  border-bottom: 1px solid reduce(18)
+  margin-top: -1px
 
 .fa
   width: 1em

@@ -1,6 +1,6 @@
 import api from '../../api.jsx';
 
-const background = color => ({'border-radius': '2px', padding: '1em 1.5em', 'width': '100%', background: color});
+const background = color => ({'border-radius': '2px', padding: '1em 1.5em', background: color});
 
 const message = error => {
   if (!error)
@@ -15,7 +15,7 @@ const message = error => {
 const Login = props =>
   <>
     <h2>Login</h2>
-    <div><div style={background((!props.error || props.error.status === 401) ? '#0c4' : '#f35')}>{message(props.error)}</div></div>
+    <div style={background((!props.error || props.error.status === 401) ? '#0c4' : '#f35')}>{message(props.error)}</div>
     <Show when={props.error}>
       <div><input id="email" type="text" placeholder="Username" defaultValue={api.user.name} /></div>
       <div><input id="password" type="password" placeholder="Password" defaultValue={api.user.password} /></div>

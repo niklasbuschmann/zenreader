@@ -33,7 +33,7 @@ const Dropzone = props => {
   const dragOver = () => setState({drag: true});
   const dragLeave = () => setState({drag: false});
   
-  return <span onDrop={prevent(drop)} onDragOver={prevent(dragOver)} onDragLeave={dragLeave}>{(typeof props.children === 'function') ? props.children(state) : props.children}</span>;
+  return <div onDrop={prevent(drop)} onDragOver={prevent(dragOver)} onDragLeave={dragLeave}>{(typeof props.children === 'function') ? props.children(state) : props.children}</div>;
 };
 
 export {Output, Input, Dropzone};

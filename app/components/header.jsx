@@ -1,5 +1,5 @@
 const Header = props =>
-  <header className="flex">
+  <header className="flex shadow">
     <div>
       <span className="fa fa-search icon" />
       <input type="text" placeholder="search" onInput={event => props.search(event.target.value.toLowerCase())} />

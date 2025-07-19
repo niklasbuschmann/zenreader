@@ -9,14 +9,14 @@ const tags = feeds => feeds
 const size = (articles, read) => (articles || []).filter(article => !read[article.id]).length;
 
 const Category = props =>
-  <li className={'hover ' + (props.selected && 'selected')} onClick={props.select}>
+  <li className={'shadow hover ' + (props.selected && 'selected')} onClick={props.select}>
     <span className="icon fa fa-folder" />
     <span className="grow">{props.title}</span>
     <span>{props.count || ''}</span>
   </li>
 
 const MenuItem = props =>
-  <li className={'hover ' + (props.selected && 'selected')} onClick={props.select}>
+  <li className={'shadow hover ' + (props.selected && 'selected')} onClick={props.select}>
     <Favicon src={props.url} />
     <span className="grow overflow">{props.title}</span>
     <span className="show"><span>{props.count || ''}</span></span>
@@ -24,8 +24,8 @@ const MenuItem = props =>
   </li>
 
 const Menu = props =>
-  <aside className={'column shadow ' + (props.invert && 'dark')}>
-    <header><button className="subscribe" onClick={() => props.edit({})}><span className="fa fa-rss icon" />Subscribe</button></header>
+  <aside className={'sidebar column ' + (props.invert && 'dark')}>
+    <header className="shadow"><button className="subscribe" onClick={() => props.edit({})}><span className="fa fa-rss icon" />Subscribe</button></header>
     <For each={[{name: "all feeds", urls: props.feeds.map(feed => feed.url)}].concat(tags(props.feeds))}>
       {category => <Category title={category.name} selected={props.selected.length > 1 && props.selected.join() === category.urls.join()} key={category.name} select={() => props.select(category.urls)} count={category.urls.map(url => size(props.articles[url], props.read)).reduce((a, b) => a + b, 0)} />}
     </For>
