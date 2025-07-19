@@ -9,12 +9,12 @@ const Article = props => {
 
   return <article className="shadow" onClick={() => close(true)}>
     <header className="flex">
-      <span><Favicon src={props.article.link} /><a href={props.article.link} style={{opacity: props.isread ? '0.6' : '1'}} onClick={() => close(true)} target="_blank">{props.article.title}</a></span>
-      <Time time={new Date(props.article.date)} />
+      <a href={props.article.link} className={props.isread && 'meta'} onClick={() => close(true)} target="_blank"><Favicon src={props.article.link} />{props.article.title}</a>
+      <Time className="meta" time={new Date(props.article.date)} />
     </header>
     <Show when={state.open || props.layout}>
       <div className="content" onClick={event => event.stopPropagation()}>
-        <div className="flex">{props.article.author}<button title="mark as unread" className="fa fa-eye-slash" onClick={() => close(false)} /></div>
+        <div className="flex"><span className="meta">{props.article.author}</span><button title="mark as unread" className="fa fa-eye-slash" onClick={() => close(false)} /></div>
         <div innerHTML={props.article.content} />
       </div>
     </Show>

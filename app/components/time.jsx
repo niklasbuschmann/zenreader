@@ -18,6 +18,6 @@ const toRelative = time => {
 
 setInterval(() => document.querySelectorAll('time').forEach(time => time.innerHTML = toRelative(Date.parse(time.dateTime))), 30000);
 
-const Time = ({time}) => <time dateTime={time} title={time.toLocaleString()}>{toRelative(time)}</time>;
+const Time = ({time, className}) => <time className={className} dateTime={time} title={time.toLocaleString()}>{toRelative(time)}</time>;
 
 export default Time;
