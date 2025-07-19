@@ -12,7 +12,7 @@ const About = props =>
         <strong style={{color: '#f45'}}>&lt;3</strong>
       </div>
       <div><a href="https://github.com/niklasbuschmann">Niklas Buschmann</a></div>
-      <div>2020</div>
+      <div>2015-2025</div>
     </footer>
   </>
 
