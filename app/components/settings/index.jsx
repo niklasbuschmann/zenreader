@@ -19,11 +19,11 @@ const Settings = props =>
     <div className="dark settings" onClick={event => event.stopPropagation()}>
       <aside className="column">
         <For each={Object.keys(pages)}>
-          {key => <li className={props.configured === key && 'blue selected'} onClick={() => props.configure(key)}><span><span className={'icon fa ' + icons[key]} />{key}</span></li>}
+          {key => <li classList={{'blue selected': props.configured === key }} onClick={() => props.configure(key)}><span><span className={`icon fa ${icons[key]}`} />{key}</span></li>}
         </For>
         <footer className="red" onClick={nuke}><span><span className="fa fa-power-off icon" />Logout</span></footer>
       </aside>
-      <main className="column grow" style={{position: 'relative'}}>{pages[props.configured](props)}</main>
+      <main className="column grow" style="position: relative">{pages[props.configured](props)}</main>
     </div>
   </dialog>
 

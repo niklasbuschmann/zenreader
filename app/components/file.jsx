@@ -13,12 +13,12 @@ const parse = files => Array.from(files).map(file =>
   }));
 
 const Output = props => <span onClick={event => event.currentTarget.firstChild.click()}>
-    <a download={props.name} href={objectUrl(props.getContent(), props.type)} style={{display: 'none'}} />
+    <a download={props.name} href={objectUrl(props.getContent(), props.type)} style="display: none" />
     {props.children}
   </span>
 
 const Input = props => <span onClick={event => event.currentTarget.firstChild.click()}>
-    {<input type="file" multiple={props.multiple} accept={props.accept} style={{display: 'none'}} onChange={prevent(event => parse(event.target.files).map(file => file.then(props.handleData)))} />}
+    {<input type="file" multiple={props.multiple} accept={props.accept} style="display: none" onChange={prevent(event => parse(event.target.files).map(file => file.then(props.handleData)))} />}
     {props.children}
   </span>
 
