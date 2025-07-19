@@ -26,7 +26,7 @@ const feedapi = function (req, res) {
       this.emit('error', {message: response.statusMessage});
   };
   needle.get(req.params.url, {parse: false, follow: 4}).on('error', handleError).on('response', checkStatus)
-    .pipe(feedparser({}).on('error', handleError))
+    .pipe(feedparser({feedurl: req.params.url}).on('error', handleError))
     .pipe(parser().on('error', handleError))
     .pipe(JSONStream.stringify().on('error', handleError))
     .pipe(res.set({
