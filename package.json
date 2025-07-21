@@ -1,0 +1,41 @@
+{
+  "name": "zenreader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niklasbuschmann/zenreader.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/niklasbuschmann/zenreader/issues"
+  },
+  "homepage": "https://github.com/niklasbuschmann/zenreader#readme",
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "babel-preset-solid": "^1.9.6",
+    "rollup": "^4.45.1",
+    "rollup-plugin-scss": "^4.0.1",
+    "sass": "^1.89.2",
+    "solid-js": "^1.9.7"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "compression": "^1.8.1",
+    "event-stream": "^4.0.1",
+    "express": "^5.1.0",
+    "express-basic-auth": "^1.2.1",
+    "feedparser": "^2.2.10",
+    "JSONStream": "^1.3.5",
+    "needle": "^3.3.1",
+    "node-persist": "^4.0.4",
+    "xss": "^1.0.15"
+  }
+}

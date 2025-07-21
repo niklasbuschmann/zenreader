@@ -1,0 +1,230 @@
+$font-size: calc(0.8rem + 0.3vw) !default
+$dark: #1c1d22 !default
+$light: #ffffff !default
+$red: #f24 !default
+$green: #0c4 !default
+$blue: #46f !default
+
+@function reduce ($percent)
+  @return rgba(mix($dark, $light), $percent / 100)
+
+.light
+  background: $light
+  color: $dark
+
+.dark
+  background: $dark
+  color: $light
+
+body
+  font-family: "PT Sans", sans-serif
+  font-size: $font-size
+  line-height: 1.6
+  margin: 0
+  -webkit-text-size-adjust: 100%
+
+a
+  color: inherit
+  text-decoration: inherit
+  &:hover
+    text-decoration: underline
+
+hr
+  border: 1px dashed
+  margin: 2em 0
+
+blockquote
+  background: reduce(9)
+  border-left: 3px solid reduce(90)
+  padding: 1px 1.5em
+  opacity: .75
+
+blockquote, figure
+  margin: 1em 0
+
+li, img
+  margin: .25em 0
+
+img
+  border-radius: 2px
+  max-width: 100%
+  height: auto
+
+pre
+  background: reduce(12)
+  border-radius: 2px
+  font-size: .8em
+  margin: 1.5em 0
+  padding: .8em 1.2em
+  overflow-x: auto
+
+\:not(pre) > code
+  font-size: .9em
+  background: reduce(15)
+  opacity: .7
+  border-radius: 2px
+  margin: 0 .1em
+  padding: .2em .4em
+
+table
+  display: inline-block
+  max-width: 100%
+  overflow-y: auto
+  border-collapse: collapse
+  border-radius: 2px
+
+th, td
+  padding: .5em 1em
+  border: 1px solid reduce(24)
+
+thead, tr:hover td, tr:hover th
+  background: reduce(12)
+
+article
+  cursor: pointer
+  &:hover
+    background: reduce(10)
+
+footer
+  margin-top: auto
+
+button, input
+  all: unset
+  transition: .2s
+
+button
+  cursor: pointer
+  &:hover
+    color: reduce(100)
+
+aside
+  background: reduce(10)
+  li
+    display: flex
+    margin: 0
+    cursor: pointer
+    align-items: center
+    &:hover, &.selected
+      background: reduce(18)
+  header, li, footer
+    padding: .75em 1.5em
+
+dialog
+  display: flex
+  border: none
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 1
+  justify-content: center
+  padding: 6% 0
+  .light &
+    background: rgba($light, .94)
+  .dark &
+    background: rgba(darken($dark, 6%), 0.94)
+
+dialog
+  button, input
+    background: reduce(16)
+    border-radius: 2px
+    padding: .5em 1.2em
+
+  button:hover
+    background: reduce(40)
+    color: inherit
+
+  input:focus
+    box-shadow: 0 0 0px 1.5px $blue inset
+
+.main
+  height: 100vh
+
+.sidebar
+  width: 20em
+  flex-shrink: 0
+  border-right: 1px solid reduce(18)
+
+.flex
+  display: flex
+  justify-content: space-between
+
+.column
+  display: flex
+  flex-direction: column
+
+.main header
+  padding: .75em 2em
+
+.content
+  margin: 0 2em 1em
+  cursor: auto
+  a
+    color: $blue
+
+.buttons
+  width: 9em
+
+.edit, .settings
+  border-radius: 6px
+  h2
+    font-weight: inherit
+    text-align: center
+    margin: 1.5em 0
+  div
+    align-items: center
+    margin: .6em 2.5em
+  &, div, footer
+    display: flex
+    justify-content: space-between
+
+.edit
+  width: 36em
+  height: fit-content
+  input
+    width: 100%
+
+.settings
+  width: 50em
+  height: 28em
+  aside
+    width: 13em
+  button, input
+    text-align: center
+    width: 3em
+
+.overflow
+  overflow: auto
+
+.center
+  text-align: center
+
+.grow
+  flex-grow: 1
+
+.shadow
+  border-bottom: 1px solid reduce(18)
+  margin-top: -1px
+
+.fa, .icon
+  width: 1em
+
+.icon
+  margin: -2px 1em -2px 0
+
+.meta
+  opacity: .6
+
+.subscribe:hover
+  color: $green
+
+.red:hover, .red.selected
+  background: $red
+
+.blue:hover, .blue.selected
+  background: $blue
+
+.green:hover, .green.selected
+  background: $green
+
+.hover:not(:hover) .hide, .hover:hover .show
+  display: none

@@ -1,0 +1,277 @@
+.light {
+  background: #ffffff;
+  color: #1c1d22;
+}
+
+.dark {
+  background: #1c1d22;
+  color: #ffffff;
+}
+
+body {
+  font-family: "PT Sans", sans-serif;
+  font-size: calc(0.8rem + 0.3vw);
+  line-height: 1.6;
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: 1px dashed;
+  margin: 2em 0;
+}
+
+blockquote {
+  background: rgba(141.5, 142, 144.5, 0.09);
+  border-left: 3px solid rgba(141.5, 142, 144.5, 0.9);
+  padding: 1px 1.5em;
+  opacity: 0.75;
+}
+
+blockquote, figure {
+  margin: 1em 0;
+}
+
+li, img {
+  margin: 0.25em 0;
+}
+
+img {
+  border-radius: 2px;
+  max-width: 100%;
+  height: auto;
+}
+
+pre {
+  background: rgba(141.5, 142, 144.5, 0.12);
+  border-radius: 2px;
+  font-size: 0.8em;
+  margin: 1.5em 0;
+  padding: 0.8em 1.2em;
+  overflow-x: auto;
+}
+
+:not(pre) > code {
+  font-size: 0.9em;
+  background: rgba(141.5, 142, 144.5, 0.15);
+  opacity: 0.7;
+  border-radius: 2px;
+  margin: 0 0.1em;
+  padding: 0.2em 0.4em;
+}
+
+table {
+  display: inline-block;
+  max-width: 100%;
+  overflow-y: auto;
+  border-collapse: collapse;
+  border-radius: 2px;
+}
+
+th, td {
+  padding: 0.5em 1em;
+  border: 1px solid rgba(141.5, 142, 144.5, 0.24);
+}
+
+thead, tr:hover td, tr:hover th {
+  background: rgba(141.5, 142, 144.5, 0.12);
+}
+
+article {
+  cursor: pointer;
+}
+article:hover {
+  background: rgba(141.5, 142, 144.5, 0.1);
+}
+
+footer {
+  margin-top: auto;
+}
+
+button, input {
+  all: unset;
+  transition: 0.2s;
+}
+
+button {
+  cursor: pointer;
+}
+button:hover {
+  color: rgb(141.5, 142, 144.5);
+}
+
+aside {
+  background: rgba(141.5, 142, 144.5, 0.1);
+}
+aside li {
+  display: flex;
+  margin: 0;
+  cursor: pointer;
+  align-items: center;
+}
+aside li:hover, aside li.selected {
+  background: rgba(141.5, 142, 144.5, 0.18);
+}
+aside header, aside li, aside footer {
+  padding: 0.75em 1.5em;
+}
+
+dialog {
+  display: flex;
+  border: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  justify-content: center;
+  padding: 6% 0;
+}
+.light dialog {
+  background: rgba(255, 255, 255, 0.94);
+}
+.dark dialog {
+  background: rgba(14.1806451613, 14.6870967742, 17.2193548387, 0.94);
+}
+
+dialog button, dialog input {
+  background: rgba(141.5, 142, 144.5, 0.16);
+  border-radius: 2px;
+  padding: 0.5em 1.2em;
+}
+dialog button:hover {
+  background: rgba(141.5, 142, 144.5, 0.4);
+  color: inherit;
+}
+dialog input:focus {
+  box-shadow: 0 0 0px 1.5px #46f inset;
+}
+
+.main {
+  height: 100vh;
+}
+
+.sidebar {
+  width: 20em;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(141.5, 142, 144.5, 0.18);
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.main header {
+  padding: 0.75em 2em;
+}
+
+.content {
+  margin: 0 2em 1em;
+  cursor: auto;
+}
+.content a {
+  color: #46f;
+}
+
+.buttons {
+  width: 9em;
+}
+
+.edit, .settings {
+  border-radius: 6px;
+}
+.edit h2, .settings h2 {
+  font-weight: inherit;
+  text-align: center;
+  margin: 1.5em 0;
+}
+.edit div, .settings div {
+  align-items: center;
+  margin: 0.6em 2.5em;
+}
+.edit, .edit div, .edit footer, .settings, .settings div, .settings footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit {
+  width: 36em;
+  height: fit-content;
+}
+.edit input {
+  width: 100%;
+}
+
+.settings {
+  width: 50em;
+  height: 28em;
+}
+.settings aside {
+  width: 13em;
+}
+.settings button, .settings input {
+  text-align: center;
+  width: 3em;
+}
+
+.overflow {
+  overflow: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.shadow {
+  border-bottom: 1px solid rgba(141.5, 142, 144.5, 0.18);
+  margin-top: -1px;
+}
+
+.fa, .icon {
+  width: 1em;
+}
+
+.icon {
+  margin: -2px 1em -2px 0;
+}
+
+.meta {
+  opacity: 0.6;
+}
+
+.subscribe:hover {
+  color: #0c4;
+}
+
+.red:hover, .red.selected {
+  background: #f24;
+}
+
+.blue:hover, .blue.selected {
+  background: #46f;
+}
+
+.green:hover, .green.selected {
+  background: #0c4;
+}
+
+.hover:not(:hover) .hide, .hover:hover .show {
+  display: none;
+}
