@@ -9,7 +9,10 @@ const Article = props => {
 
   return <article className="shadow" onClick={() => close(true)}>
     <header className="flex">
-      <a href={props.article.link} classList={{meta: props.isread}} onClick={() => close(true)} target="_blank"><Favicon src={props.article.link} />{props.article.title}</a>
+      <span>
+        <Favicon src={props.article.link} />
+        <a href={props.article.link} classList={{meta: props.isread}} onClick={() => close(true)} target="_blank">{props.article.title}</a>
+      </span>
       <Time className="meta" time={new Date(props.article.date)} />
     </header>
     <Show when={open() || props.open}>

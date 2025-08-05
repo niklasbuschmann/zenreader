@@ -15,16 +15,20 @@ body
 a
   color: inherit
   text-decoration: inherit
+  transition: .2s
   &:hover
-    text-decoration: underline
+    color: reduce(100)
+  header &
+    font-weight: bold
+    -webkit-font-smoothing: antialiased
 
 hr
   border: 1px dashed
   margin: 2em 0
 
 blockquote
-  background: reduce(8)
-  border-left: 3px solid reduce(820)
+  background: reduce(12)
+  border-left: 3px solid reduce(80)
   padding: 1px 1.5em
 
 blockquote, figure
@@ -108,7 +112,7 @@ main
   width: 75%
   box-shadow: 0 0 0 1px reduce(22)
   article, > header
-    padding: .75em 2.5em
+    padding: .75em 2em
   nav
     width: 10em
 
@@ -185,8 +189,10 @@ dialog
   opacity: .6
 
 .shadow
-  margin-top: -1px
-  border-bottom: 1px solid reduce(18)
+  box-shadow: 0 1px reduce(18)
+
+.shadow:hover, .shadow.selected
+  box-shadow: 0 1px reduce(30)
 
 .subscribe:hover
   color: $green

@@ -1540,7 +1540,7 @@ const Favicon = ({
 
 var _tmpl$$6 = /*#__PURE__*/template(`<li class="shadow hover"><span class="icon fa fa-tags"></span><span class=grow></span><span>`),
   _tmpl$2$2 = /*#__PURE__*/template(`<li class="shadow hover"><span class="grow overflow"></span><span class=show><span></span></span><button class="hide fa fa-pencil">`),
-  _tmpl$3$1 = /*#__PURE__*/template(`<aside class=column><header class=shadow><button class=subscribe><span class="fa fa-rss icon"></span>Subscribe</button></header><section class=overflow></section><footer class=flex><button title="switch theme"><span class="fa fa-adjust"></span></button><button title=settings><span>`);
+  _tmpl$3$1 = /*#__PURE__*/template(`<aside class=column><header class=shadow><button class=subscribe><span class="fa fa-rss icon"></span>Subscribe</button></header><nav class="grow overflow"></nav><footer class=flex><button title="switch theme"><span class="fa fa-adjust"></span></button><button title=settings><span>`);
 const tags = feeds => feeds.flatMap(feed => feed.tags).filter((value, index, self) => self.indexOf(value) === index).map(name => ({
   name: name,
   urls: feeds.filter(feed => feed.tags.includes(name)).map(feed => feed.url)
@@ -1585,7 +1585,7 @@ const Menu = props => (() => {
     _el$14 = _el$13.nextSibling,
     _el$15 = _el$14.firstChild;
   _el$10.$$click = () => props.edit({});
-  insert(_el$0, createComponent(For, {
+  insert(_el$11, createComponent(For, {
     get each() {
       return [{
         name: "all feeds",
@@ -1604,7 +1604,7 @@ const Menu = props => (() => {
         return category.urls.map(url => size(props.articles[url], props.read)).reduce((a, b) => a + b, 0);
       }
     })
-  }), _el$11);
+  }), null);
   insert(_el$11, createComponent(For, {
     get each() {
       return props.feeds;
@@ -1625,7 +1625,7 @@ const Menu = props => (() => {
         props.edit(feed);
       }
     }))
-  }));
+  }), null);
   _el$13.$$click = () => props.set({
     dark: !props.settings.dark
   });
@@ -1752,7 +1752,7 @@ const Time = ({
 })();
 
 var _tmpl$$2 = /*#__PURE__*/template(`<section><div class="flex meta"><span></span><button title="mark as unread"class="fa fa-eye-slash"></button></div><div>`),
-  _tmpl$2$1 = /*#__PURE__*/template(`<article class=shadow><header class=flex><a target=_blank>`);
+  _tmpl$2$1 = /*#__PURE__*/template(`<article class=shadow><header class=flex><span><a target=_blank>`);
 const Article = props => {
   const [open, setState] = createSignal(false);
   const close = isread => {
@@ -1762,15 +1762,16 @@ const Article = props => {
   return (() => {
     var _el$ = _tmpl$2$1(),
       _el$2 = _el$.firstChild,
-      _el$3 = _el$2.firstChild;
+      _el$3 = _el$2.firstChild,
+      _el$4 = _el$3.firstChild;
     _el$.$$click = () => close(true);
-    _el$3.$$click = () => close(true);
     insert(_el$3, createComponent(Favicon, {
       get src() {
         return props.article.link;
       }
-    }), null);
-    insert(_el$3, () => props.article.title, null);
+    }), _el$4);
+    _el$4.$$click = () => close(true);
+    insert(_el$4, () => props.article.title);
     insert(_el$2, createComponent(Time, {
       className: "meta",
       get time() {
@@ -1782,23 +1783,23 @@ const Article = props => {
         return open() || props.open;
       },
       get children() {
-        var _el$4 = _tmpl$$2(),
-          _el$5 = _el$4.firstChild,
+        var _el$5 = _tmpl$$2(),
           _el$6 = _el$5.firstChild,
-          _el$7 = _el$6.nextSibling,
-          _el$8 = _el$5.nextSibling;
-        _el$4.$$click = event => event.stopPropagation();
-        insert(_el$6, () => props.article.author);
-        _el$7.$$click = () => close(false);
-        createRenderEffect(() => _el$8.innerHTML = props.article.content);
-        return _el$4;
+          _el$7 = _el$6.firstChild,
+          _el$8 = _el$7.nextSibling,
+          _el$9 = _el$6.nextSibling;
+        _el$5.$$click = event => event.stopPropagation();
+        insert(_el$7, () => props.article.author);
+        _el$8.$$click = () => close(false);
+        createRenderEffect(() => _el$9.innerHTML = props.article.content);
+        return _el$5;
       }
     }), null);
     createRenderEffect(_p$ => {
       var _v$ = props.article.link,
         _v$2 = !!props.isread;
-      _v$ !== _p$.e && setAttribute(_el$3, "href", _p$.e = _v$);
-      _v$2 !== _p$.t && _el$3.classList.toggle("meta", _p$.t = _v$2);
+      _v$ !== _p$.e && setAttribute(_el$4, "href", _p$.e = _v$);
+      _v$2 !== _p$.t && _el$4.classList.toggle("meta", _p$.t = _v$2);
       return _p$;
     }, {
       e: undefined,
@@ -1810,7 +1811,7 @@ const Article = props => {
 delegateEvents(["click"]);
 
 var _tmpl$$1 = /*#__PURE__*/template(`<a>`),
-  _tmpl$2 = /*#__PURE__*/template(`<div class=overflow>`),
+  _tmpl$2 = /*#__PURE__*/template(`<div class="overflow grow">`),
   _tmpl$3 = /*#__PURE__*/template(`<h2 style=text-align:center>`);
 const background = props => {
   if (!props.feeds.length) return 'Welcome';
