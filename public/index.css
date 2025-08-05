@@ -104,8 +104,7 @@ button:hover {
 }
 
 aside {
-  width: 25vw;
-  height: 100vh;
+  width: 25%;
   background: rgba(141.5, 142, 146.5, 0.08);
 }
 aside li {
@@ -122,8 +121,7 @@ aside header, aside li, aside footer {
 }
 
 main {
-  height: 100vh;
-  width: 75vw;
+  width: 75%;
   box-shadow: 0 0 0 1px rgba(141.5, 142, 146.5, 0.22);
 }
 main article, main > header {
@@ -135,8 +133,6 @@ main nav {
 
 dialog {
   position: absolute;
-  width: 100%;
-  height: 100%;
   padding: 0;
   backdrop-filter: blur(10px);
   border: none;
@@ -177,6 +173,11 @@ dialog input:focus {
 .dark {
   background: #1c1d26;
   color: #ffffff;
+}
+
+.full {
+  width: 100vw;
+  height: 100vh;
 }
 
 .flex {

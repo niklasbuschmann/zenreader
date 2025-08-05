@@ -1410,7 +1410,7 @@ const About = props => [createComponent(Github, {
   repo: "niklasbuschmann/zenreader"
 }), _tmpl$$9(), _tmpl$2$4()];
 
-var _tmpl$$8 = /*#__PURE__*/template(`<dialog open><div class="dark settings flex overflow"><aside class=column><li><span><span class="icon fa fa-user-circle"></span>Login</span></li><li><span><span class="icon fa fa-wrench"></span>General</span></li><li><span><span class="icon fa fa-rss"></span>Feeds</span></li><li><span><span class="icon fa fa-terminal"></span>About</span></li><footer class=red><span><span class="fa fa-power-off icon"></span>Logout</span></footer></aside><section class="column grow spread"style=position:relative>`);
+var _tmpl$$8 = /*#__PURE__*/template(`<dialog class=full open><div class="dark settings flex overflow"><aside class=column><li><span><span class="icon fa fa-user-circle"></span>Login</span></li><li><span><span class="icon fa fa-wrench"></span>General</span></li><li><span><span class="icon fa fa-rss"></span>Feeds</span></li><li><span><span class="icon fa fa-terminal"></span>About</span></li><footer class=red><span><span class="fa fa-power-off icon"></span>Logout</span></footer></aside><section class="column grow spread"style=position:relative>`);
 const nuke = () => {
   window.onunload = null;
   window.localStorage.clear();
@@ -1678,7 +1678,7 @@ const Header = props => (() => {
 })();
 delegateEvents(["input", "click"]);
 
-var _tmpl$$4 = /*#__PURE__*/template(`<dialog open><div class="dark spread edit column"><h2 class=center></h2><div><input id=title placeholder=Title type=text><input id=url placeholder=Link type=url><input id=tags placeholder=Tags type=text></div><div><button class=red><span class="icon fa fa-trash"></span>Delete</button><span><button class=blue style="margin:0 1em"><span class="icon fa fa-times-circle"></span>Cancel</button><button class=green><span class="icon fa fa-floppy-o"></span>Save`);
+var _tmpl$$4 = /*#__PURE__*/template(`<dialog class=full open><div class="dark spread edit column"><h2 class=center></h2><div><input id=title placeholder=Title type=text><input id=url placeholder=Link type=url><input id=tags placeholder=Tags type=text></div><div><button class=red><span class="icon fa fa-trash"></span>Delete</button><span><button class=blue style="margin:0 1em"><span class="icon fa fa-times-circle"></span>Cancel</button><button class=green><span class="icon fa fa-floppy-o"></span>Save`);
 const values = () => [{
   title: document.querySelector('#title').value,
   url: document.querySelector('#url').value,
@@ -1895,7 +1895,7 @@ const App = props => (() => {
     }
   })), null);
   insert(_el$2, createComponent(Articles, props), null);
-  createRenderEffect(() => _el$.className = `flex ${props.settings.dark ? 'dark' : 'light'}`);
+  createRenderEffect(() => _el$.className = `flex full ${props.settings.dark ? 'dark' : 'light'}`);
   return _el$;
 })();
 

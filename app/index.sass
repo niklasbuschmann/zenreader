@@ -92,8 +92,7 @@ button
     color: reduce(100)
 
 aside
-  width: 25vw
-  height: 100vh
+  width: 25%
   background: reduce(8)
   li
     display: flex
@@ -106,8 +105,7 @@ aside
     padding: .75em 1.5em
 
 main
-  height: 100vh
-  width: 75vw
+  width: 75%
   box-shadow: 0 0 0 1px reduce(22)
   article, > header
     padding: .75em 2.5em
@@ -116,8 +114,6 @@ main
 
 dialog
   position: absolute
-  width: 100%
-  height: 100%
   padding: 0
   backdrop-filter: blur(10px)
   border: none
@@ -154,6 +150,10 @@ dialog
 .dark
   background: $dark
   color: $light
+
+.full
+  width: 100vw
+  height: 100vh
 
 .flex
   display: flex

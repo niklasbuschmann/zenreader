@@ -5,7 +5,7 @@ const values = () => [{
 }];
 
 const Edit = props =>
-  <dialog open onClick={() => props.replace([])}>
+  <dialog className="full" open onClick={() => props.replace([])}>
     <div className="dark spread edit column" onClick={event => event.stopPropagation()}>
       <h2 className="center">{props.old.title || 'Subscribe'}</h2>
       <div>
