@@ -12,7 +12,7 @@ const message = error => {
 
 const Login = props =>
   <>
-    <h2>Login</h2>
+    <h2 className="center">Login</h2>
     <div style={`border-radius: 2px; padding: 1em 1.5em; background: ${(!props.error || props.error.status === 401) ? '#0c4' : '#f35'}`}>{message(props.error)}</div>
     <Show when={props.error}>
       <div><input id="email" type="text" placeholder="Username" value={api.user.name || 'user'} style="width: inherit; text-align: inherit" /></div>

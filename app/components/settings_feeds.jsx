@@ -5,7 +5,7 @@ const dropzone = state => <p style={`color: ${state.error ? '#f45' : (state.drag
 
 const Feeds = props =>
   <>
-    <h2>Import / Export</h2>
+    <h2 className="center">Import / Export</h2>
     <div>Import OPML<Input readAs="Text" handleData={text => parse(text).length ? props.add(parse(text)) : Promise.reject('Could not parse file')}><button className="blue" title="import OPML"><span className="fa fa-upload" /></button></Input></div>
     <div>Export OPML<Output getContent={() => stringify('Zen Reader export', props.feeds)} name="exported feeds.opml" type="application/xml"><button className="blue" title="export OPML"><span className="fa fa-download" /></button></Output></div>
     <div>Delete Feeds <button onClick={() => props.add([], false, true)} className="red" title="Delete feeds"><span className="fa fa-trash" /></button></div>

@@ -13,10 +13,10 @@ const Article = props => {
       <Time className="meta" time={new Date(props.article.date)} />
     </header>
     <Show when={open() || props.open}>
-      <div className="content" onClick={event => event.stopPropagation()}>
-        <div className="flex"><span className="meta">{props.article.author}</span><button title="mark as unread" className="fa fa-eye-slash" onClick={() => close(false)} /></div>
+      <section onClick={event => event.stopPropagation()}>
+        <div className="flex meta"><span>{props.article.author}</span><button title="mark as unread" className="fa fa-eye-slash" onClick={() => close(false)} /></div>
         <div innerHTML={props.article.content} />
-      </div>
+      </section>
     </Show>
   </article>;
 };

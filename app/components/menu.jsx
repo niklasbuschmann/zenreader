@@ -24,7 +24,7 @@ const MenuItem = props =>
   </li>
 
 const Menu = props =>
-  <aside className="sidebar column" classList={{dark: props.settings.invert}}>
+  <aside className="column" classList={{dark: props.settings.invert}}>
     <header className="shadow"><button className="subscribe" onClick={() => props.edit({})}><span className="fa fa-rss icon" />Subscribe</button></header>
     <For each={[{name: "all feeds", urls: props.feeds.map(feed => feed.url)}].concat(tags(props.feeds))}>
       {category => <Category title={category.name} selected={props.selected.length > 1 && props.selected.join() === category.urls.join()} select={() => props.select(category.urls)} count={category.urls.map(url => size(props.articles[url], props.read)).reduce((a, b) => a + b, 0)} />}
