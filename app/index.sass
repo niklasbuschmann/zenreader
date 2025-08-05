@@ -1,19 +1,11 @@
 $light: #ffffff
 $dark: #1c1d26
 $red: #f24
-$green: #0c4
-$blue: #46f
+$green: #0d3
+$blue: #57f
 
 @function reduce ($percent)
   @return rgba(mix($dark, $light), $percent / 100)
-
-.light
-  background: $light
-  color: $dark
-
-.dark
-  background: $dark
-  color: $light
 
 body
   font: 16px / 1.6 "PT Sans", system-ui, sans-serif
@@ -31,10 +23,9 @@ hr
   margin: 2em 0
 
 blockquote
-  background: reduce(9)
-  border-left: 3px solid reduce(90)
+  background: reduce(8)
+  border-left: 3px solid reduce(820)
   padding: 1px 1.5em
-  opacity: .75
 
 blockquote, figure
   margin: 1em 0
@@ -48,8 +39,9 @@ img
   height: auto
 
 pre
-  background: reduce(12)
-  border-radius: 2px
+  background: lighten($dark, 10%)
+  color: $light
+  border-radius: 5px
   font-size: .8em
   margin: 1.5em 0
   padding: .8em 1.2em
@@ -59,7 +51,7 @@ code:not(pre code)
   font-size: .9em
   background: reduce(15)
   opacity: .7
-  border-radius: 2px
+  border-radius: 4px
   margin: 0 .1em
   padding: .2em .4em
 
@@ -81,7 +73,7 @@ article
   cursor: pointer
   &:hover
     background: reduce(10)
-  section
+  > section
     margin: .75em 0
     cursor: auto
     a
@@ -100,9 +92,9 @@ button
     color: reduce(100)
 
 aside
-  width: 19em
-  flex-shrink: 0
-  background: reduce(10)
+  width: 25vw
+  height: 100vh
+  background: reduce(8)
   li
     display: flex
     margin: 0
@@ -115,32 +107,37 @@ aside
 
 main
   height: 100vh
+  width: 75vw
   box-shadow: 0 0 0 1px reduce(22)
   article, > header
-    padding: .75em 2em
+    padding: .75em 2.5em
   nav
-    width: 9em
+    width: 10em
 
 dialog
   position: absolute
   width: 100%
   height: 100%
   padding: 0
-  backdrop-filter: blur(12px)
+  backdrop-filter: blur(10px)
   border: none
   z-index: 1
   .light &
     background: rgba(255, 255, 255, .2)
   .dark &
-    background: rgba(0, 0, 0, .7)
+    background: rgba(0, 0, 0, .6)
 
   > *
     margin: 6% auto
     border-radius: 6px
 
+  h1, h2
+    font-weight: inherit
+    margin: .75em auto
+
   button, input
     background: reduce(16)
-    border-radius: 2px
+    border-radius: 5px
     padding: .5em 1.2em
 
   button:hover
@@ -150,6 +147,14 @@ dialog
   input:focus
     box-shadow: 0 0 0px 1.5px $blue inset
 
+.light
+  background: $light
+  color: $dark
+
+.dark
+  background: $dark
+  color: $light
+
 .flex
   display: flex
   justify-content: space-between
@@ -158,8 +163,11 @@ dialog
   display: flex
   flex-direction: column
 
-.center
-  text-align: center
+.spread > *
+  display: flex
+  justify-content: space-between
+  align-items: center
+  flex-wrap: wrap
 
 .overflow
   overflow: auto
@@ -195,27 +203,22 @@ dialog
 .hover:not(:hover) .hide, .hover:hover .show
   display: none
 
-.edit, .settings
-  h2
-    font-weight: inherit
-    margin: 1.5em 0
-  div
-    display: flex
-    justify-content: space-between
-    align-items: center
-    flex-wrap: wrap
-    margin: .6em 2.5em
-
 .edit
-  width: 34em
-  padding: 1px 1em
+  width: 36em
+  padding: 1em 0
+  div
+    margin: 1em 3em
   input
     width: 100%
     margin: .5em 0
 
 .settings
-  width: 50em
+  width: 48em
   height: 28em
+  h2
+    margin: 1.5em auto
+  div
+    margin: .5em 2.5em
   aside
     width: 13em
   button, input

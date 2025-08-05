@@ -1,19 +1,7 @@
-.light {
-  background: #ffffff;
-  color: #1c1d22;
-}
-
-.dark {
-  background: #1c1d22;
-  color: #ffffff;
-}
-
 body {
-  font-family: "PT Sans", sans-serif;
-  font-size: calc(0.8rem + 0.3vw);
-  line-height: 1.6;
+  font: 16px/1.6 "PT Sans", system-ui, sans-serif;
+  font-size: calc(0.9em + 0.2vw);
   margin: 0;
-  -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -30,10 +18,9 @@ hr {
 }
 
 blockquote {
-  background: rgba(141.5, 142, 144.5, 0.09);
-  border-left: 3px solid rgba(141.5, 142, 144.5, 0.9);
+  background: rgba(141.5, 142, 146.5, 0.08);
+  border-left: 3px solid rgb(141.5, 142, 146.5);
   padding: 1px 1.5em;
-  opacity: 0.75;
 }
 
 blockquote, figure {
@@ -51,19 +38,20 @@ img {
 }
 
 pre {
-  background: rgba(141.5, 142, 144.5, 0.12);
-  border-radius: 2px;
+  background: rgb(49.6363636364, 51.4090909091, 67.3636363636);
+  color: #ffffff;
+  border-radius: 5px;
   font-size: 0.8em;
   margin: 1.5em 0;
   padding: 0.8em 1.2em;
   overflow-x: auto;
 }
 
-:not(pre) > code {
+code:not(pre code) {
   font-size: 0.9em;
-  background: rgba(141.5, 142, 144.5, 0.15);
+  background: rgba(141.5, 142, 146.5, 0.15);
   opacity: 0.7;
-  border-radius: 2px;
+  border-radius: 4px;
   margin: 0 0.1em;
   padding: 0.2em 0.4em;
 }
@@ -78,18 +66,25 @@ table {
 
 th, td {
   padding: 0.5em 1em;
-  border: 1px solid rgba(141.5, 142, 144.5, 0.24);
+  border: 1px solid rgba(141.5, 142, 146.5, 0.24);
 }
 
-thead, tr:hover td, tr:hover th {
-  background: rgba(141.5, 142, 144.5, 0.12);
+thead, tr:hover {
+  background: rgba(141.5, 142, 146.5, 0.12);
 }
 
 article {
   cursor: pointer;
 }
 article:hover {
-  background: rgba(141.5, 142, 144.5, 0.1);
+  background: rgba(141.5, 142, 146.5, 0.1);
+}
+article > section {
+  margin: 0.75em 0;
+  cursor: auto;
+}
+article > section a {
+  color: #57f;
 }
 
 footer {
@@ -105,11 +100,13 @@ button {
   cursor: pointer;
 }
 button:hover {
-  color: rgb(141.5, 142, 144.5);
+  color: rgb(141.5, 142, 146.5);
 }
 
 aside {
-  background: rgba(141.5, 142, 144.5, 0.1);
+  width: 25vw;
+  height: 100vh;
+  background: rgba(141.5, 142, 146.5, 0.08);
 }
 aside li {
   display: flex;
@@ -118,50 +115,68 @@ aside li {
   align-items: center;
 }
 aside li:hover, aside li.selected {
-  background: rgba(141.5, 142, 144.5, 0.18);
+  background: rgba(141.5, 142, 146.5, 0.18);
 }
 aside header, aside li, aside footer {
   padding: 0.75em 1.5em;
 }
 
+main {
+  height: 100vh;
+  width: 75vw;
+  box-shadow: 0 0 0 1px rgba(141.5, 142, 146.5, 0.22);
+}
+main article, main > header {
+  padding: 0.75em 2.5em;
+}
+main nav {
+  width: 10em;
+}
+
 dialog {
-  display: flex;
-  border: none;
   position: absolute;
   width: 100%;
   height: 100%;
+  padding: 0;
+  backdrop-filter: blur(10px);
+  border: none;
   z-index: 1;
-  justify-content: center;
-  padding: 6% 0;
 }
 .light dialog {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.2);
 }
 .dark dialog {
-  background: rgba(14.1806451613, 14.6870967742, 17.2193548387, 0.94);
+  background: rgba(0, 0, 0, 0.6);
 }
-
+dialog > * {
+  margin: 6% auto;
+  border-radius: 6px;
+}
+dialog h1, dialog h2 {
+  font-weight: inherit;
+  margin: 0.75em auto;
+}
 dialog button, dialog input {
-  background: rgba(141.5, 142, 144.5, 0.16);
-  border-radius: 2px;
+  background: rgba(141.5, 142, 146.5, 0.16);
+  border-radius: 5px;
   padding: 0.5em 1.2em;
 }
 dialog button:hover {
-  background: rgba(141.5, 142, 144.5, 0.4);
+  background: rgba(141.5, 142, 146.5, 0.4);
   color: inherit;
 }
 dialog input:focus {
-  box-shadow: 0 0 0px 1.5px #46f inset;
+  box-shadow: 0 0 0px 1.5px #57f inset;
 }
 
-.main {
-  height: 100vh;
+.light {
+  background: #ffffff;
+  color: #1c1d26;
 }
 
-.sidebar {
-  width: 20em;
-  flex-shrink: 0;
-  border-right: 1px solid rgba(141.5, 142, 144.5, 0.18);
+.dark {
+  background: #1c1d26;
+  color: #ffffff;
 }
 
 .flex {
@@ -174,74 +189,19 @@ dialog input:focus {
   flex-direction: column;
 }
 
-.main header {
-  padding: 0.75em 2em;
-}
-
-.content {
-  margin: 0 2em 1em;
-  cursor: auto;
-}
-.content a {
-  color: #46f;
-}
-
-.buttons {
-  width: 9em;
-}
-
-.edit, .settings {
-  border-radius: 6px;
-}
-.edit h2, .settings h2 {
-  font-weight: inherit;
-  text-align: center;
-  margin: 1.5em 0;
-}
-.edit div, .settings div {
-  align-items: center;
-  margin: 0.6em 2.5em;
-}
-.edit, .edit div, .edit footer, .settings, .settings div, .settings footer {
+.spread > * {
   display: flex;
   justify-content: space-between;
-}
-
-.edit {
-  width: 36em;
-  height: fit-content;
-}
-.edit input {
-  width: 100%;
-}
-
-.settings {
-  width: 50em;
-  height: 28em;
-}
-.settings aside {
-  width: 13em;
-}
-.settings button, .settings input {
-  text-align: center;
-  width: 3em;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .overflow {
   overflow: auto;
 }
 
-.center {
-  text-align: center;
-}
-
 .grow {
   flex-grow: 1;
-}
-
-.shadow {
-  border-bottom: 1px solid rgba(141.5, 142, 144.5, 0.18);
-  margin-top: -1px;
 }
 
 .fa, .icon {
@@ -256,8 +216,13 @@ dialog input:focus {
   opacity: 0.6;
 }
 
+.shadow {
+  margin-top: -1px;
+  border-bottom: 1px solid rgba(141.5, 142, 146.5, 0.18);
+}
+
 .subscribe:hover {
-  color: #0c4;
+  color: #0d3;
 }
 
 .red:hover, .red.selected {
@@ -265,13 +230,43 @@ dialog input:focus {
 }
 
 .blue:hover, .blue.selected {
-  background: #46f;
+  background: #57f;
 }
 
 .green:hover, .green.selected {
-  background: #0c4;
+  background: #0d3;
 }
 
 .hover:not(:hover) .hide, .hover:hover .show {
   display: none;
+}
+
+.edit {
+  width: 36em;
+  padding: 1em 0;
+}
+.edit div {
+  margin: 1em 3em;
+}
+.edit input {
+  width: 100%;
+  margin: 0.5em 0;
+}
+
+.settings {
+  width: 48em;
+  height: 28em;
+}
+.settings h2 {
+  margin: 1.5em auto;
+}
+.settings div {
+  margin: 0.5em 2.5em;
+}
+.settings aside {
+  width: 13em;
+}
+.settings button, .settings input {
+  text-align: center;
+  width: 3em;
 }

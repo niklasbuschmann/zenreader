@@ -20,7 +20,7 @@ const Settings = props =>
         <li classList={{'blue selected': props.configuring === 'About' }} onClick={() => props.configure('About')}><span><span className="icon fa fa-terminal" />About</span></li>
         <footer className="red" onClick={nuke}><span><span className="fa fa-power-off icon" />Logout</span></footer>
       </aside>
-      <section className="column grow" style="position: relative">
+      <section className="column grow spread" style="position: relative">
         <Show when={props.configuring === 'Login'}><Login error={props.error} /></Show>
         <Show when={props.configuring === 'General'}><General set={props.set} settings={props.settings} /></Show>
         <Show when={props.configuring === 'Feeds'}><Feeds set={props.set} settings={props.settings} feeds={props.feeds} add={props.replace} /></Show>

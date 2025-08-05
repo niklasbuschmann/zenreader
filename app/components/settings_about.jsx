@@ -2,7 +2,7 @@ import Github from './github.jsx';
 
 const About = props =>
   <>
-    <Github background="#46f" color="white" repo="niklasbuschmann/zenreader" />
+    <Github background="#57f" color="white" repo="niklasbuschmann/zenreader" />
     <h2 style="margin: auto; font-size: 2.2em"><a href="https://github.com/niklasbuschmann/zenreader" target="_blank">Zen Reader</a></h2>
     <div>
       <span>

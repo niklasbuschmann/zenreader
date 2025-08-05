@@ -19,7 +19,7 @@ const articles = props => props.selected
 
 const Articles = props =>
   <div className="overflow">
-    <For each={articles(props)} fallback={<h2 className="center">{background(props)}</h2>}>
+    <For each={articles(props)} fallback={<h2 style="text-align: center">{background(props)}</h2>}>
       {article => <Article article={article} isread={props.read[article.id]} open={props.settings.layout} mark={props.mark} />}
     </For>
   </div>
