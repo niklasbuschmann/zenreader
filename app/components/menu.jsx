@@ -19,7 +19,7 @@ const MenuItem = props =>
   <li className="shadow hover" classList={{selected: props.selected}} onClick={props.select}>
     <Favicon src={props.url} />
     <span className="grow overflow">{props.title}</span>
-    <span className="show"><span>{props.count || ''}</span></span>
+    <span className="show">{props.count || ''}</span>
     <button className="hide fa fa-pencil" onClick={props.edit} />
   </li>
 

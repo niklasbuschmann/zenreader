@@ -1410,7 +1410,7 @@ const About = props => [createComponent(Github, {
   repo: "niklasbuschmann/zenreader"
 }), _tmpl$$9(), _tmpl$2$4()];
 
-var _tmpl$$8 = /*#__PURE__*/template(`<dialog class=full open><div class="dark settings flex overflow"><aside class=column><li><span><span class="icon fa fa-user-circle"></span>Login</span></li><li><span><span class="icon fa fa-wrench"></span>General</span></li><li><span><span class="icon fa fa-rss"></span>Feeds</span></li><li><span><span class="icon fa fa-terminal"></span>About</span></li><footer class=red><span><span class="fa fa-power-off icon"></span>Logout</span></footer></aside><section class="column grow spread"style=position:relative>`);
+var _tmpl$$8 = /*#__PURE__*/template(`<dialog class=full open><div class="dark settings flex overflow"><aside class=column><li><span class="icon fa fa-user-circle"></span>Login</li><li><span class="icon fa fa-wrench"></span>General</li><li><span class="icon fa fa-rss"></span>Feeds</li><li><span class="icon fa fa-terminal"></span>About</li><span class=grow></span><li class=red><span class="fa fa-power-off icon"></span>Logout</li></aside><section class="column grow spread"style=position:relative>`);
 const nuke = () => {
   window.onunload = null;
   window.localStorage.clear();
@@ -1429,15 +1429,16 @@ const Settings = props => (() => {
     _el$6 = _el$5.nextSibling,
     _el$7 = _el$6.nextSibling,
     _el$8 = _el$7.nextSibling,
-    _el$9 = _el$3.nextSibling;
+    _el$9 = _el$8.nextSibling,
+    _el$0 = _el$3.nextSibling;
   _el$.$$click = () => props.configure(false);
   _el$2.$$click = event => event.stopPropagation();
   _el$4.$$click = () => props.configure('Login');
   _el$5.$$click = () => props.configure('General');
   _el$6.$$click = () => props.configure('Feeds');
   _el$7.$$click = () => props.configure('About');
-  _el$8.$$click = nuke;
-  insert(_el$9, createComponent(Show, {
+  _el$9.$$click = nuke;
+  insert(_el$0, createComponent(Show, {
     get when() {
       return props.configuring === 'Login';
     },
@@ -1449,7 +1450,7 @@ const Settings = props => (() => {
       });
     }
   }), null);
-  insert(_el$9, createComponent(Show, {
+  insert(_el$0, createComponent(Show, {
     get when() {
       return props.configuring === 'General';
     },
@@ -1464,7 +1465,7 @@ const Settings = props => (() => {
       });
     }
   }), null);
-  insert(_el$9, createComponent(Show, {
+  insert(_el$0, createComponent(Show, {
     get when() {
       return props.configuring === 'Feeds';
     },
@@ -1485,7 +1486,7 @@ const Settings = props => (() => {
       });
     }
   }), null);
-  insert(_el$9, createComponent(Show, {
+  insert(_el$0, createComponent(Show, {
     get when() {
       return props.configuring === 'About';
     },
@@ -1539,7 +1540,7 @@ const Favicon = ({
 })();
 
 var _tmpl$$6 = /*#__PURE__*/template(`<li class="shadow hover"><span class="icon fa fa-tags"></span><span class=grow></span><span>`),
-  _tmpl$2$2 = /*#__PURE__*/template(`<li class="shadow hover"><span class="grow overflow"></span><span class=show><span></span></span><button class="hide fa fa-pencil">`),
+  _tmpl$2$2 = /*#__PURE__*/template(`<li class="shadow hover"><span class="grow overflow"></span><span class=show></span><button class="hide fa fa-pencil">`),
   _tmpl$3$1 = /*#__PURE__*/template(`<aside class=column><header class=shadow><button class=subscribe><span class="fa fa-rss icon"></span>Subscribe</button></header><nav class="grow overflow"></nav><footer class=flex><button title="switch theme"><span class="fa fa-adjust"></span></button><button title=settings><span>`);
 const tags = feeds => feeds.flatMap(feed => feed.tags).filter((value, index, self) => self.indexOf(value) === index).map(name => ({
   name: name,
@@ -1561,8 +1562,7 @@ const MenuItem = props => (() => {
   var _el$5 = _tmpl$2$2(),
     _el$6 = _el$5.firstChild,
     _el$7 = _el$6.nextSibling,
-    _el$8 = _el$7.firstChild,
-    _el$9 = _el$7.nextSibling;
+    _el$8 = _el$7.nextSibling;
   addEventListener(_el$5, "click", props.select, true);
   insert(_el$5, createComponent(Favicon, {
     get src() {
@@ -1570,22 +1570,22 @@ const MenuItem = props => (() => {
     }
   }), _el$6);
   insert(_el$6, () => props.title);
-  insert(_el$8, () => props.count || '');
-  addEventListener(_el$9, "click", props.edit, true);
+  insert(_el$7, () => props.count || '');
+  addEventListener(_el$8, "click", props.edit, true);
   createRenderEffect(() => _el$5.classList.toggle("selected", !!props.selected));
   return _el$5;
 })();
 const Menu = props => (() => {
-  var _el$0 = _tmpl$3$1(),
+  var _el$9 = _tmpl$3$1(),
+    _el$0 = _el$9.firstChild,
     _el$1 = _el$0.firstChild,
-    _el$10 = _el$1.firstChild,
-    _el$11 = _el$1.nextSibling,
-    _el$12 = _el$11.nextSibling,
-    _el$13 = _el$12.firstChild,
-    _el$14 = _el$13.nextSibling,
-    _el$15 = _el$14.firstChild;
-  _el$10.$$click = () => props.edit({});
-  insert(_el$11, createComponent(For, {
+    _el$10 = _el$0.nextSibling,
+    _el$11 = _el$10.nextSibling,
+    _el$12 = _el$11.firstChild,
+    _el$13 = _el$12.nextSibling,
+    _el$14 = _el$13.firstChild;
+  _el$1.$$click = () => props.edit({});
+  insert(_el$10, createComponent(For, {
     get each() {
       return [{
         name: "all feeds",
@@ -1605,7 +1605,7 @@ const Menu = props => (() => {
       }
     })
   }), null);
-  insert(_el$11, createComponent(For, {
+  insert(_el$10, createComponent(For, {
     get each() {
       return props.feeds;
     },
@@ -1626,21 +1626,21 @@ const Menu = props => (() => {
       }
     }))
   }), null);
-  _el$13.$$click = () => props.set({
+  _el$12.$$click = () => props.set({
     dark: !props.settings.dark
   });
-  _el$14.$$click = () => props.configure('Login');
+  _el$13.$$click = () => props.configure('Login');
   createRenderEffect(_p$ => {
     var _v$ = !!props.settings.invert,
       _v$2 = props.error ? 'fa fa-wrench' : 'fa fa-cogs';
-    _v$ !== _p$.e && _el$0.classList.toggle("dark", _p$.e = _v$);
-    _v$2 !== _p$.t && (_el$15.className = _p$.t = _v$2);
+    _v$ !== _p$.e && _el$9.classList.toggle("dark", _p$.e = _v$);
+    _v$2 !== _p$.t && (_el$14.className = _p$.t = _v$2);
     return _p$;
   }, {
     e: undefined,
     t: undefined
   });
-  return _el$0;
+  return _el$9;
 })();
 delegateEvents(["click"]);
 

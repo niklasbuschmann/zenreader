@@ -92,10 +92,6 @@ article > section a {
   color: #57f;
 }
 
-footer {
-  margin-top: auto;
-}
-
 button, input {
   all: unset;
   transition: 0.2s;
@@ -227,7 +223,7 @@ dialog input:focus {
 }
 
 .shadow:hover, .shadow.selected {
-  box-shadow: 0 1px rgba(141.5, 142, 146.5, 0.3);
+  box-shadow: 0 1px rgba(141.5, 142, 146.5, 0.32);
 }
 
 .subscribe:hover {

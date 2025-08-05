@@ -14,11 +14,12 @@ const Settings = props =>
   <dialog className="full" open onClick={() => props.configure(false)}>
     <div className="dark settings flex overflow" onClick={event => event.stopPropagation()}>
       <aside className="column">
-        <li classList={{'blue selected': props.configuring === 'Login' }} onClick={() => props.configure('Login')}><span><span className="icon fa fa-user-circle" />Login</span></li>
-        <li classList={{'blue selected': props.configuring === 'General' }} onClick={() => props.configure('General')}><span><span className="icon fa fa-wrench" />General</span></li>
-        <li classList={{'blue selected': props.configuring === 'Feeds' }} onClick={() => props.configure('Feeds')}><span><span className="icon fa fa-rss" />Feeds</span></li>
-        <li classList={{'blue selected': props.configuring === 'About' }} onClick={() => props.configure('About')}><span><span className="icon fa fa-terminal" />About</span></li>
-        <footer className="red" onClick={nuke}><span><span className="fa fa-power-off icon" />Logout</span></footer>
+        <li classList={{'blue selected': props.configuring === 'Login' }} onClick={() => props.configure('Login')}><span className="icon fa fa-user-circle" />Login</li>
+        <li classList={{'blue selected': props.configuring === 'General' }} onClick={() => props.configure('General')}><span className="icon fa fa-wrench" />General</li>
+        <li classList={{'blue selected': props.configuring === 'Feeds' }} onClick={() => props.configure('Feeds')}><span className="icon fa fa-rss" />Feeds</li>
+        <li classList={{'blue selected': props.configuring === 'About' }} onClick={() => props.configure('About')}><span className="icon fa fa-terminal" />About</li>
+        <span className="grow" />
+        <li className="red" onClick={nuke}><span className="fa fa-power-off icon" />Logout</li>
       </aside>
       <section className="column grow spread" style="position: relative">
         <Show when={props.configuring === 'Login'}><Login error={props.error} /></Show>
