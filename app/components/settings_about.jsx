@@ -3,7 +3,7 @@ import Github from './github.jsx';
 const About = props =>
   <>
     <Github background="#46f" color="white" repo="niklasbuschmann/zenreader" />
-    <h1 className="grow"><a href="https://github.com/niklasbuschmann/zenreader" target="_blank" style="font-size: 2em; color: #fff">Zen Reader</a></h1>
+    <h2 className="grow"><a href="https://github.com/niklasbuschmann/zenreader" target="_blank" style="font-size: 2em; color: #fff">Zen Reader</a></h2>
     <div>
       <span>
         <span className="fa fa-code" />

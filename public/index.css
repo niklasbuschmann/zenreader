@@ -146,9 +146,8 @@ main > header button {
 
 dialog {
   padding: 6% 0;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   border: none;
-  z-index: 1;
 }
 .light dialog {
   background: rgba(255, 255, 255, 0.2);
@@ -160,7 +159,7 @@ dialog > * {
   margin: auto;
   border-radius: 6px;
 }
-dialog h1, dialog h2 {
+dialog h2 {
   font-weight: inherit;
   margin: 0.75em auto;
 }
