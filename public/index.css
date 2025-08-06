@@ -9,17 +9,44 @@ body, dialog {
   height: 100vh;
 }
 
+body, header, footer, nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+main, section, aside, aside nav {
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
-  transition: 0.2s;
 }
-a:hover {
+a:hover, section a {
   color: #27f;
+}
+section a:hover {
+  text-decoration: underline;
 }
 header a {
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
+}
+
+button, input {
+  all: unset;
+}
+
+button {
+  cursor: pointer;
+}
+button:hover {
+  color: #46f;
+}
+
+a, button, article {
+  transition: 0.2s;
 }
 
 hr {
@@ -89,44 +116,21 @@ article {
 article:hover {
   background: rgba(141.5, 142, 146.5, 0.1);
 }
-article > section {
+article section {
   margin: 0.75em 0;
   cursor: auto;
-}
-article > section a {
-  color: #46f;
-}
-article > section a:hover {
-  text-decoration: underline;
-}
-
-button, input {
-  all: unset;
-  transition: 0.2s;
-}
-
-button {
-  cursor: pointer;
-}
-button:hover {
-  color: #46f;
 }
 
 aside {
   width: 25%;
   background: rgba(141.5, 142, 146.5, 0.08);
 }
-aside li {
-  display: flex;
-  margin: 0;
-  cursor: pointer;
-  align-items: center;
-}
-aside li:hover, aside li.selected {
-  background: rgba(141.5, 142, 146.5, 0.18);
-}
-aside header, aside li, aside footer {
+aside button {
   padding: 0.75em 1.5em;
+}
+aside nav button:hover, aside nav button.selected {
+  background: rgba(141.5, 142, 146.5, 0.18);
+  color: inherit;
 }
 
 main {
@@ -141,8 +145,7 @@ main nav {
 }
 
 dialog {
-  position: absolute;
-  padding: 0;
+  padding: 6% 0;
   backdrop-filter: blur(10px);
   border: none;
   z-index: 1;
@@ -154,20 +157,20 @@ dialog {
   background: rgba(0, 0, 0, 0.6);
 }
 dialog > * {
-  margin: 6% auto;
+  margin: auto;
   border-radius: 6px;
 }
 dialog h1, dialog h2 {
   font-weight: inherit;
   margin: 0.75em auto;
 }
-dialog button, dialog input {
+dialog section button, dialog section input {
   background: rgba(141.5, 142, 146.5, 0.16);
   border-radius: 5px;
   padding: 0.5em 1.2em;
 }
 dialog button:hover {
-  background: rgba(141.5, 142, 146.5, 0.4);
+  background: rgba(141.5, 142, 146.5, 0.25);
   color: inherit;
 }
 dialog input:focus {
@@ -184,21 +187,10 @@ dialog input:focus {
   color: #ffffff;
 }
 
-.flex {
-  display: flex;
-  justify-content: space-between;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-}
-
 .spread > * {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .overflow {
@@ -207,6 +199,14 @@ dialog input:focus {
 
 .grow {
   flex-grow: 1;
+  justify-content: inherit;
+}
+
+.shadow {
+  box-shadow: 0 1px rgba(141.5, 142, 146.5, 0.18);
+}
+.shadow:hover, .shadow.selected {
+  box-shadow: 0 1px rgba(141.5, 142, 146.5, 0.32);
 }
 
 .fa, .icon {
@@ -219,14 +219,6 @@ dialog input:focus {
 
 .meta {
   color: rgb(141.5, 142, 146.5);
-}
-
-.shadow {
-  box-shadow: 0 1px rgba(141.5, 142, 146.5, 0.18);
-}
-
-.shadow:hover, .shadow.selected {
-  box-shadow: 0 1px rgba(141.5, 142, 146.5, 0.32);
 }
 
 .red:hover, .red.selected {
@@ -249,8 +241,9 @@ dialog input:focus {
   width: 36em;
   padding: 1em 0;
 }
-.edit div {
+.edit > div {
   margin: 1em 3em;
+  flex-wrap: wrap;
 }
 .edit input {
   width: 100%;
@@ -258,6 +251,7 @@ dialog input:focus {
 }
 
 .settings {
+  display: flex;
   width: 48em;
   height: 28em;
 }
@@ -270,7 +264,7 @@ dialog input:focus {
 .settings aside {
   width: 13em;
 }
-.settings button, .settings input {
+.settings section button, .settings input {
   text-align: center;
   width: 3em;
 }

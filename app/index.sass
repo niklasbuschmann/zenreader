@@ -16,15 +16,35 @@ body, dialog
   width: 100vw
   height: 100vh
 
+body, header, footer, nav
+  display: flex
+  justify-content: space-between
+
+main, section, aside, aside nav
+  display: flex
+  flex-direction: column
+
 a
   color: inherit
   text-decoration: inherit
-  transition: .2s
-  &:hover
+  &:hover, section &
     color: #27f
+  section &:hover
+    text-decoration: underline
   header &
     font-weight: bold
     -webkit-font-smoothing: antialiased
+
+button, input
+  all: unset
+
+button
+  cursor: pointer
+  &:hover
+    color: $blue
+
+a, button, article
+  transition: .2s
 
 hr
   border: 1px dashed
@@ -81,35 +101,18 @@ article
   cursor: pointer
   &:hover
     background: reduce(10)
-  > section
+  section
     margin: .75em 0
     cursor: auto
-    a
-      color: $blue
-      &:hover
-        text-decoration: underline
-
-button, input
-  all: unset
-  transition: .2s
-
-button
-  cursor: pointer
-  &:hover
-    color: $blue
 
 aside
   width: 25%
   background: reduce(8)
-  li
-    display: flex
-    margin: 0
-    cursor: pointer
-    align-items: center
-    &:hover, &.selected
-      background: reduce(18)
-  header, li, footer
+  button
     padding: .75em 1.5em
+  nav button:hover, nav button.selected
+    background: reduce(18)
+    color: inherit
 
 main
   width: 75%
@@ -120,8 +123,7 @@ main
     width: 10em
 
 dialog
-  position: absolute
-  padding: 0
+  padding: 6% 0
   backdrop-filter: blur(10px)
   border: none
   z-index: 1
@@ -131,20 +133,20 @@ dialog
     background: rgba(0, 0, 0, .6)
 
   > *
-    margin: 6% auto
+    margin: auto
     border-radius: 6px
 
   h1, h2
     font-weight: inherit
     margin: .75em auto
 
-  button, input
+  section button, section input
     background: reduce(16)
     border-radius: 5px
     padding: .5em 1.2em
 
   button:hover
-    background: reduce(40)
+    background: reduce(25)
     color: inherit
 
   input:focus
@@ -158,25 +160,22 @@ dialog
   background: $dark
   color: $light
 
-.flex
-  display: flex
-  justify-content: space-between
-
-.column
-  display: flex
-  flex-direction: column
-
 .spread > *
   display: flex
   justify-content: space-between
   align-items: center
-  flex-wrap: wrap
 
 .overflow
   overflow: auto
 
 .grow
   flex-grow: 1
+  justify-content: inherit
+
+.shadow
+  box-shadow: 0 1px reduce(18)
+  &:hover, &.selected
+    box-shadow: 0 1px reduce(32)
 
 .fa, .icon
   width: 1em
@@ -186,12 +185,6 @@ dialog
 
 .meta
   color: reduce(100)
-
-.shadow
-  box-shadow: 0 1px reduce(18)
-
-.shadow:hover, .shadow.selected
-  box-shadow: 0 1px reduce(32)
 
 .red:hover, .red.selected
   background: $red
@@ -208,13 +201,15 @@ dialog
 .edit
   width: 36em
   padding: 1em 0
-  div
+  > div
     margin: 1em 3em
+    flex-wrap: wrap
   input
     width: 100%
     margin: .5em 0
 
 .settings
+  display: flex
   width: 48em
   height: 28em
   h2
@@ -223,6 +218,6 @@ dialog
     margin: .5em 2.5em
   aside
     width: 13em
-  button, input
+  section button, input
     text-align: center
     width: 3em

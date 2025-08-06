@@ -8,16 +8,16 @@ const Article = props => {
   const close = isread => {open() && props.mark(props.article.id, isread); setState(!open())};
 
   return <article className="shadow" onClick={() => close(true)}>
-    <header className="flex">
-      <span>
+    <header>
+      <span classList={{meta: props.isread}} >
         <Favicon src={props.article.link} />
-        <a href={props.article.link} classList={{meta: props.isread}} onClick={() => close(true)} target="_blank">{props.article.title}</a>
+        <a href={props.article.link} onClick={() => close(true)} target="_blank">{props.article.title}</a>
       </span>
       <Time className="meta" time={new Date(props.article.date)} />
     </header>
     <Show when={open() || props.open}>
       <section onClick={event => event.stopPropagation()}>
-        <div className="flex meta">{props.article.author}<button title="mark as unread" className="fa fa-eye-slash" onClick={() => close(false)} /></div>
+        <header className="meta">{props.article.author}<button title="mark as unread" className="fa fa-eye-slash" onClick={() => close(false)} /></header>
         <div innerHTML={props.article.content} />
       </section>
     </Show>

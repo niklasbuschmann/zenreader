@@ -1362,7 +1362,7 @@ var _tmpl$$b = /*#__PURE__*/template(`<p>`),
 const dropzone = state => (() => {
   var _el$ = _tmpl$$b();
   insert(_el$, () => state.error ? state.error : state.success ? 'Successfully imported OPML' : 'Drop opml here to import');
-  createRenderEffect(_$p => style(_el$, `color: ${state.error ? '#f24' : state.drag || state.success ? '#0c0' : '#57f'}; border: 2px dashed; margin: 1.5em 0; padding: 1.5em; text-align: center; border-radius: 5px; width: 100%`, _$p));
+  createRenderEffect(_$p => style(_el$, `color: ${state.error ? '#f24' : state.drag || state.success ? '#0c0' : '#46f'}; border: 2px dashed; margin: 1.5em 0; padding: 1.5em; text-align: center; border-radius: 5px; width: 100%`, _$p));
   return _el$;
 })();
 const Feeds = props => [_tmpl$2$5(), (() => {
@@ -1417,15 +1417,15 @@ const Github = props => (() => {
   return _el$;
 })();
 
-var _tmpl$$9 = /*#__PURE__*/template(`<h2 style=margin:auto;font-size:2.2em><a href=https://github.com/niklasbuschmann/zenreader target=_blank>Zen Reader`),
+var _tmpl$$9 = /*#__PURE__*/template(`<h1 class=grow><a href=https://github.com/niklasbuschmann/zenreader target=_blank style=font-size:2em;color:#fff>Zen Reader`),
   _tmpl$2$4 = /*#__PURE__*/template(`<div><span><span class="fa fa-code"></span><span>&nbsp; with &nbsp;</span><strong style=color:#f45>&lt;3</strong></span><span>Niklas Buschmann</span><span>2015-2025`);
 const About = props => [createComponent(Github, {
-  background: "#57f",
+  background: "#46f",
   color: "white",
   repo: "niklasbuschmann/zenreader"
 }), _tmpl$$9(), _tmpl$2$4()];
 
-var _tmpl$$8 = /*#__PURE__*/template(`<dialog open><div class="dark settings flex overflow"><aside class=column><li><span class="icon fa fa-user-circle"></span>Login</li><li><span class="icon fa fa-wrench"></span>General</li><li><span class="icon fa fa-rss"></span>Feeds</li><li><span class="icon fa fa-terminal"></span>About</li><span class=grow></span><li class=red><span class="fa fa-power-off icon"></span>Logout</li></aside><section class="column grow spread"style=position:relative>`);
+var _tmpl$$8 = /*#__PURE__*/template(`<dialog open><div class="dark settings overflow"><aside><button><span class="icon fa fa-user-circle"></span>Login</button><button><span class="icon fa fa-wrench"></span>General</button><button><span class="icon fa fa-rss"></span>Feeds</button><button><span class="icon fa fa-terminal"></span>About</button><span class=grow></span><button class=red><span class="fa fa-power-off icon"></span>Logout</button></aside><section class="grow spread"style=position:relative>`);
 const nuke = () => {
   window.onunload = null;
   window.localStorage.clear();
@@ -1554,9 +1554,9 @@ const Favicon = ({
   return _el$2;
 })();
 
-var _tmpl$$6 = /*#__PURE__*/template(`<li class="shadow hover"><span class="icon fa fa-tags"></span><span class=grow></span><span>`),
-  _tmpl$2$2 = /*#__PURE__*/template(`<li class="shadow hover"><span class="grow overflow"></span><span class=show></span><button><span class="hide fa fa-pencil">`),
-  _tmpl$3$1 = /*#__PURE__*/template(`<aside class=column><header class=shadow><button><span class="fa fa-rss icon"></span>Subscribe</button></header><nav class="grow overflow"></nav><footer class=flex><button title="switch theme"><span class="fa fa-adjust"></span></button><button title=settings><span>`);
+var _tmpl$$6 = /*#__PURE__*/template(`<button class="shadow hover"><span class="icon fa fa-tags"></span><span class=grow></span><span>`),
+  _tmpl$2$2 = /*#__PURE__*/template(`<button class="shadow hover"><span class="grow overflow"></span><span class=show></span><a class="hide fa fa-pencil">`),
+  _tmpl$3$1 = /*#__PURE__*/template(`<aside><button class=shadow><span class="fa fa-rss icon"></span>Subscribe</button><nav class="grow overflow spread"></nav><footer><button title="switch theme"><span class="fa fa-adjust"></span></button><button title=settings><span>`);
 const tags = feeds => feeds.flatMap(feed => feed.tags).filter((value, index, self) => self.indexOf(value) === index).map(name => ({
   name: name,
   urls: feeds.filter(feed => feed.tags.includes(name)).map(feed => feed.url)
@@ -1593,14 +1593,13 @@ const MenuItem = props => (() => {
 const Menu = props => (() => {
   var _el$9 = _tmpl$3$1(),
     _el$0 = _el$9.firstChild,
-    _el$1 = _el$0.firstChild,
-    _el$10 = _el$0.nextSibling,
-    _el$11 = _el$10.nextSibling,
-    _el$12 = _el$11.firstChild,
-    _el$13 = _el$12.nextSibling,
-    _el$14 = _el$13.firstChild;
-  _el$1.$$click = () => props.edit({});
-  insert(_el$10, createComponent(For, {
+    _el$1 = _el$0.nextSibling,
+    _el$10 = _el$1.nextSibling,
+    _el$11 = _el$10.firstChild,
+    _el$12 = _el$11.nextSibling,
+    _el$13 = _el$12.firstChild;
+  _el$0.$$click = () => props.edit({});
+  insert(_el$1, createComponent(For, {
     get each() {
       return [{
         name: "all feeds",
@@ -1620,7 +1619,7 @@ const Menu = props => (() => {
       }
     })
   }), null);
-  insert(_el$10, createComponent(For, {
+  insert(_el$1, createComponent(For, {
     get each() {
       return props.feeds;
     },
@@ -1641,15 +1640,15 @@ const Menu = props => (() => {
       }
     }))
   }), null);
-  _el$12.$$click = () => props.set({
+  _el$11.$$click = () => props.set({
     dark: !props.settings.dark
   });
-  _el$13.$$click = () => props.configure('Login');
+  _el$12.$$click = () => props.configure('Login');
   createRenderEffect(_p$ => {
     var _v$ = !!props.settings.invert,
       _v$2 = props.error ? 'fa fa-wrench' : 'fa fa-cogs';
     _v$ !== _p$.e && _el$9.classList.toggle("dark", _p$.e = _v$);
-    _v$2 !== _p$.t && (_el$14.className = _p$.t = _v$2);
+    _v$2 !== _p$.t && (_el$13.className = _p$.t = _v$2);
     return _p$;
   }, {
     e: undefined,
@@ -1659,7 +1658,7 @@ const Menu = props => (() => {
 })();
 delegateEvents(["click"]);
 
-var _tmpl$$5 = /*#__PURE__*/template(`<header class="flex shadow"><div><span class="fa fa-search icon"></span><input type=text placeholder=search></div><nav class=flex><button title="mark all articles as read"><span class="fa fa-eye"></span></button><button title="show read articles"><span></span></button><button title="expand articles"><span>`);
+var _tmpl$$5 = /*#__PURE__*/template(`<header class=shadow><div><span class="fa fa-search icon"></span><input type=text placeholder=search></div><nav><button title="mark all articles as read"><span class="fa fa-eye"></span></button><button title="show read articles"><span></span></button><button title="expand articles"><span>`);
 const Header = props => (() => {
   var _el$ = _tmpl$$5(),
     _el$2 = _el$.firstChild,
@@ -1693,7 +1692,7 @@ const Header = props => (() => {
 })();
 delegateEvents(["input", "click"]);
 
-var _tmpl$$4 = /*#__PURE__*/template(`<dialog open><div class="dark spread edit column"><h2 class=center></h2><div><input id=title placeholder=Title type=text><input id=url placeholder=Link type=url><input id=tags placeholder=Tags type=text></div><div><button class=red><span class="icon fa fa-trash"></span>Delete</button><span><button class=blue style="margin:0 1em"><span class="icon fa fa-times-circle"></span>Cancel</button><button class=green><span class="icon fa fa-floppy-o"></span>Save`);
+var _tmpl$$4 = /*#__PURE__*/template(`<dialog open><section class="dark spread edit"><h2 class=center></h2><div><input id=title placeholder=Title type=text><input id=url placeholder=Link type=url><input id=tags placeholder=Tags type=text></div><div><button class=red><span class="icon fa fa-trash"></span>Delete</button><div><button class=blue style="margin:0 1em"><span class="icon fa fa-times-circle"></span>Cancel</button><button class=green><span class="icon fa fa-floppy-o"></span>Save`);
 const values = () => [{
   title: document.querySelector('#title').value,
   url: document.querySelector('#url').value,
@@ -1766,8 +1765,8 @@ const Time = ({
   return _el$;
 })();
 
-var _tmpl$$2 = /*#__PURE__*/template(`<section><div class="flex meta"><button title="mark as unread"class="fa fa-eye-slash"></button></div><div>`),
-  _tmpl$2$1 = /*#__PURE__*/template(`<article class=shadow><header class=flex><span><a target=_blank>`);
+var _tmpl$$2 = /*#__PURE__*/template(`<section><header class=meta><button title="mark as unread"class="fa fa-eye-slash"></button></header><div>`),
+  _tmpl$2$1 = /*#__PURE__*/template(`<article class=shadow><header><span><a target=_blank>`);
 const Article = props => {
   const [open, setState] = createSignal(false);
   const close = isread => {
@@ -1810,10 +1809,10 @@ const Article = props => {
       }
     }), null);
     createRenderEffect(_p$ => {
-      var _v$ = props.article.link,
-        _v$2 = !!props.isread;
-      _v$ !== _p$.e && setAttribute(_el$4, "href", _p$.e = _v$);
-      _v$2 !== _p$.t && _el$4.classList.toggle("meta", _p$.t = _v$2);
+      var _v$ = !!props.isread,
+        _v$2 = props.article.link;
+      _v$ !== _p$.e && _el$3.classList.toggle("meta", _p$.e = _v$);
+      _v$2 !== _p$.t && setAttribute(_el$4, "href", _p$.t = _v$2);
       return _p$;
     }, {
       e: undefined,
@@ -1869,7 +1868,7 @@ const Articles = props => (() => {
   return _el$2;
 })();
 
-var _tmpl$ = /*#__PURE__*/template(`<main class="column grow overflow">`);
+var _tmpl$ = /*#__PURE__*/template(`<main class="grow overflow">`);
 const App = props => [createComponent(Show, {
   get when() {
     return props.editing;

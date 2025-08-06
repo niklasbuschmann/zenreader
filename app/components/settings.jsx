@@ -12,16 +12,16 @@ const nuke = () => {
 
 const Settings = props =>
   <dialog open onClick={() => props.configure(false)}>
-    <div className="dark settings flex overflow" onClick={event => event.stopPropagation()}>
-      <aside className="column">
-        <li classList={{'blue selected': props.configuring === 'Login' }} onClick={() => props.configure('Login')}><span className="icon fa fa-user-circle" />Login</li>
-        <li classList={{'blue selected': props.configuring === 'General' }} onClick={() => props.configure('General')}><span className="icon fa fa-wrench" />General</li>
-        <li classList={{'blue selected': props.configuring === 'Feeds' }} onClick={() => props.configure('Feeds')}><span className="icon fa fa-rss" />Feeds</li>
-        <li classList={{'blue selected': props.configuring === 'About' }} onClick={() => props.configure('About')}><span className="icon fa fa-terminal" />About</li>
+    <div className="dark settings overflow" onClick={event => event.stopPropagation()}>
+      <aside>
+        <button classList={{'blue selected': props.configuring === 'Login' }} onClick={() => props.configure('Login')}><span className="icon fa fa-user-circle" />Login</button>
+        <button classList={{'blue selected': props.configuring === 'General' }} onClick={() => props.configure('General')}><span className="icon fa fa-wrench" />General</button>
+        <button classList={{'blue selected': props.configuring === 'Feeds' }} onClick={() => props.configure('Feeds')}><span className="icon fa fa-rss" />Feeds</button>
+        <button classList={{'blue selected': props.configuring === 'About' }} onClick={() => props.configure('About')}><span className="icon fa fa-terminal" />About</button>
         <span className="grow" />
-        <li className="red" onClick={nuke}><span className="fa fa-power-off icon" />Logout</li>
+        <button className="red" onClick={nuke}><span className="fa fa-power-off icon" />Logout</button>
       </aside>
-      <section className="column grow spread" style="position: relative">
+      <section className="grow spread" style="position: relative">
         <Show when={props.configuring === 'Login'}><Login error={props.error} /></Show>
         <Show when={props.configuring === 'General'}><General set={props.set} settings={props.settings} /></Show>
         <Show when={props.configuring === 'Feeds'}><Feeds set={props.set} settings={props.settings} feeds={props.feeds} add={props.replace} /></Show>
