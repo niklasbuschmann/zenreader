@@ -1712,6 +1712,7 @@ const Edit = props => (() => {
     _el$11 = _el$10.firstChild,
     _el$12 = _el$11.nextSibling;
   _el$.$$click = () => props.replace([]);
+  _el$2.$$click = event => event.stopPropagation();
   insert(_el$3, () => props.old.title || 'Subscribe');
   _el$1.$$click = () => props.replace([], props.old);
   _el$11.$$click = () => props.replace([]);
