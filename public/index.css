@@ -110,6 +110,22 @@ thead, tr:hover {
   background: rgba(141.5, 142, 146.5, 0.18);
 }
 
+dialog {
+  backdrop-filter: blur(12px);
+  border: none;
+  padding: 6% 0;
+}
+.light dialog {
+  background: rgba(255, 255, 255, 0.2);
+}
+.dark dialog {
+  background: rgba(0, 0, 0, 0.6);
+}
+dialog > * {
+  margin: auto;
+  border-radius: 6px;
+}
+
 article {
   cursor: pointer;
 }
@@ -144,35 +160,23 @@ main > header button {
   margin-left: 3.5em;
 }
 
-dialog {
-  padding: 6% 0;
-  backdrop-filter: blur(12px);
-  border: none;
-}
-.light dialog {
-  background: rgba(255, 255, 255, 0.2);
-}
-.dark dialog {
-  background: rgba(0, 0, 0, 0.6);
-}
-dialog > * {
-  margin: auto;
-  border-radius: 6px;
-}
-dialog h2 {
+dialog section h2 {
   font-weight: inherit;
-  margin: 0.75em auto;
+  margin: 1.25em auto;
+}
+dialog section div {
+  margin: 0.5em 2.5em;
 }
 dialog section button, dialog section input {
   background: rgba(141.5, 142, 146.5, 0.16);
   border-radius: 5px;
   padding: 0.5em 1.2em;
 }
-dialog button:hover {
-  background: rgba(141.5, 142, 146.5, 0.25);
+dialog section button:hover {
+  background: rgba(141.5, 142, 146.5, 0.4);
   color: inherit;
 }
-dialog input:focus {
+dialog section input:focus {
   box-shadow: 0 0 0px 1.5px #46f inset;
 }
 
@@ -184,6 +188,22 @@ dialog input:focus {
 .dark {
   background: #1c1d26;
   color: #ffffff;
+}
+
+.gray {
+  color: rgb(141.5, 142, 146.5);
+}
+
+.red:hover, .red.selected {
+  background: #f24;
+}
+
+.blue:hover, .blue.selected {
+  background: #46f;
+}
+
+.green:hover, .green.selected {
+  background: #0d3;
 }
 
 .spread > * {
@@ -216,54 +236,20 @@ dialog input:focus {
   margin: -2px 1em -2px 0;
 }
 
-.meta {
-  color: rgb(141.5, 142, 146.5);
-}
-
-.red:hover, .red.selected {
-  background: #f24;
-}
-
-.blue:hover, .blue.selected {
-  background: #46f;
-}
-
-.green:hover, .green.selected {
-  background: #0d3;
-}
-
 .hover:not(:hover) .hide, .hover:hover .show {
   display: none;
 }
 
 .edit {
-  width: 36em;
-  padding: 1em 0;
-}
-.edit > div {
-  margin: 1em 3em;
-  flex-wrap: wrap;
-}
-.edit input {
-  width: 100%;
-  margin: 0.5em 0;
+  width: 35em;
 }
 
 .settings {
   display: flex;
-  width: 48em;
-  height: 28em;
+  width: 47em;
+  height: 27em;
 }
-.settings h2 {
-  margin: 1.5em auto;
-}
-.settings div {
-  margin: 0.5em 2.5em;
-}
-.settings aside {
-  width: 13em;
-}
-.settings section button, .settings input {
+.settings section button, .settings section input {
   text-align: center;
   width: 3em;
 }

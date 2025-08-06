@@ -1425,7 +1425,7 @@ const About = props => [createComponent(Github, {
   repo: "niklasbuschmann/zenreader"
 }), _tmpl$$9(), _tmpl$2$4()];
 
-var _tmpl$$8 = /*#__PURE__*/template(`<dialog open><div class="dark settings overflow"><aside><button><span class="icon fa fa-user-circle"></span>Login</button><button><span class="icon fa fa-wrench"></span>General</button><button><span class="icon fa fa-rss"></span>Feeds</button><button><span class="icon fa fa-terminal"></span>About</button><span class=grow></span><button class=red><span class="fa fa-power-off icon"></span>Logout</button></aside><section class="grow spread"style=position:relative>`);
+var _tmpl$$8 = /*#__PURE__*/template(`<dialog open><div class="dark settings overflow"><aside><nav class=grow><button><span class="icon fa fa-user-circle"></span>Login</button><button><span class="icon fa fa-wrench"></span>General</button><button><span class="icon fa fa-rss"></span>Feeds</button><button><span class="icon fa fa-terminal"></span>About</button></nav><button class=red style=color:inherit><span class="fa fa-power-off icon"></span>Logout</button></aside><section class="grow spread"style=position:relative>`);
 const nuke = () => {
   window.onunload = null;
   window.localStorage.clear();
@@ -1440,18 +1440,18 @@ const Settings = props => (() => {
     _el$2 = _el$.firstChild,
     _el$3 = _el$2.firstChild,
     _el$4 = _el$3.firstChild,
-    _el$5 = _el$4.nextSibling,
+    _el$5 = _el$4.firstChild,
     _el$6 = _el$5.nextSibling,
     _el$7 = _el$6.nextSibling,
     _el$8 = _el$7.nextSibling,
-    _el$9 = _el$8.nextSibling,
+    _el$9 = _el$4.nextSibling,
     _el$0 = _el$3.nextSibling;
   _el$.$$click = () => props.configure(false);
   _el$2.$$click = event => event.stopPropagation();
-  _el$4.$$click = () => props.configure('Login');
-  _el$5.$$click = () => props.configure('General');
-  _el$6.$$click = () => props.configure('Feeds');
-  _el$7.$$click = () => props.configure('About');
+  _el$5.$$click = () => props.configure('Login');
+  _el$6.$$click = () => props.configure('General');
+  _el$7.$$click = () => props.configure('Feeds');
+  _el$8.$$click = () => props.configure('About');
   _el$9.$$click = nuke;
   insert(_el$0, createComponent(Show, {
     get when() {
@@ -1522,10 +1522,10 @@ const Settings = props => (() => {
       _v$4 = {
         'blue selected': props.configuring === 'About'
       };
-    _p$.e = classList(_el$4, _v$, _p$.e);
-    _p$.t = classList(_el$5, _v$2, _p$.t);
-    _p$.a = classList(_el$6, _v$3, _p$.a);
-    _p$.o = classList(_el$7, _v$4, _p$.o);
+    _p$.e = classList(_el$5, _v$, _p$.e);
+    _p$.t = classList(_el$6, _v$2, _p$.t);
+    _p$.a = classList(_el$7, _v$3, _p$.a);
+    _p$.o = classList(_el$8, _v$4, _p$.o);
     return _p$;
   }, {
     e: undefined,
@@ -1690,7 +1690,7 @@ const Header = props => (() => {
 })();
 delegateEvents(["input", "click"]);
 
-var _tmpl$$4 = /*#__PURE__*/template(`<dialog open><section class="dark spread edit"><h2 class=center></h2><div><input id=title placeholder=Title type=text><input id=url placeholder=Link type=url><input id=tags placeholder=Tags type=text></div><div><button class=red><span class="icon fa fa-trash"></span>Delete</button><div><button class=blue style="margin:0 1em"><span class="icon fa fa-times-circle"></span>Cancel</button><button class=green><span class="icon fa fa-floppy-o"></span>Save`);
+var _tmpl$$4 = /*#__PURE__*/template(`<dialog open><section class="dark edit grow spread"><h2></h2><div><input class=grow id=title placeholder=Title type=text></div><div><input class=grow id=url placeholder=Link type=url></div><div><input class=grow id=tags placeholder=Tags type=text></div><div><button class=red><span class="icon fa fa-trash"></span>Delete</button><span><button class=blue style="margin:1.5em 1em"><span class="icon fa fa-times-circle"></span>Cancel</button><button class=green><span class="icon fa fa-floppy-o"></span>Save`);
 const values = () => [{
   title: document.querySelector('#title').value,
   url: document.querySelector('#url').value,
@@ -1702,22 +1702,23 @@ const Edit = props => (() => {
     _el$3 = _el$2.firstChild,
     _el$4 = _el$3.nextSibling,
     _el$5 = _el$4.firstChild,
-    _el$6 = _el$5.nextSibling,
-    _el$7 = _el$6.nextSibling,
-    _el$8 = _el$4.nextSibling,
+    _el$6 = _el$4.nextSibling,
+    _el$7 = _el$6.firstChild,
+    _el$8 = _el$6.nextSibling,
     _el$9 = _el$8.firstChild,
-    _el$0 = _el$9.nextSibling,
+    _el$0 = _el$8.nextSibling,
     _el$1 = _el$0.firstChild,
-    _el$10 = _el$1.nextSibling;
+    _el$10 = _el$1.nextSibling,
+    _el$11 = _el$10.firstChild,
+    _el$12 = _el$11.nextSibling;
   _el$.$$click = () => props.replace([]);
-  _el$2.$$click = event => event.stopPropagation();
   insert(_el$3, () => props.old.title || 'Subscribe');
-  _el$9.$$click = () => props.replace([], props.old);
-  _el$1.$$click = () => props.replace([]);
-  _el$10.$$click = () => props.replace(values(), props.old);
+  _el$1.$$click = () => props.replace([], props.old);
+  _el$11.$$click = () => props.replace([]);
+  _el$12.$$click = () => props.replace(values(), props.old);
   createRenderEffect(() => _el$5.value = props.old.title || '');
-  createRenderEffect(() => _el$6.value = props.old.url || '');
-  createRenderEffect(() => _el$7.value = props.old.tags ? props.old.tags.join(', ') : '');
+  createRenderEffect(() => _el$7.value = props.old.url || '');
+  createRenderEffect(() => _el$9.value = props.old.tags ? props.old.tags.join(', ') : '');
   return _el$;
 })();
 delegateEvents(["click"]);
@@ -1763,7 +1764,7 @@ const Time = ({
   return _el$;
 })();
 
-var _tmpl$$2 = /*#__PURE__*/template(`<section><header class=meta><button title="mark as unread"class="fa fa-eye-slash"></button></header><div>`),
+var _tmpl$$2 = /*#__PURE__*/template(`<section><header class=gray><button title="mark as unread"class="fa fa-eye-slash"></button></header><div>`),
   _tmpl$2$1 = /*#__PURE__*/template(`<article class=shadow><header><span><a target=_blank>`);
 const Article = props => {
   const [open, setState] = createSignal(false);
@@ -1785,7 +1786,7 @@ const Article = props => {
     _el$4.$$click = () => close(true);
     insert(_el$4, () => props.article.title);
     insert(_el$2, createComponent(Time, {
-      className: "meta",
+      className: "gray",
       get time() {
         return new Date(props.article.date);
       }
@@ -1809,7 +1810,7 @@ const Article = props => {
     createRenderEffect(_p$ => {
       var _v$ = !!props.isread,
         _v$2 = props.article.link;
-      _v$ !== _p$.e && _el$3.classList.toggle("meta", _p$.e = _v$);
+      _v$ !== _p$.e && _el$3.classList.toggle("gray", _p$.e = _v$);
       _v$2 !== _p$.t && setAttribute(_el$4, "href", _p$.t = _v$2);
       return _p$;
     }, {

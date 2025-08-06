@@ -14,12 +14,13 @@ const Settings = props =>
   <dialog open onClick={() => props.configure(false)}>
     <div className="dark settings overflow" onClick={event => event.stopPropagation()}>
       <aside>
-        <button classList={{'blue selected': props.configuring === 'Login' }} onClick={() => props.configure('Login')}><span className="icon fa fa-user-circle" />Login</button>
-        <button classList={{'blue selected': props.configuring === 'General' }} onClick={() => props.configure('General')}><span className="icon fa fa-wrench" />General</button>
-        <button classList={{'blue selected': props.configuring === 'Feeds' }} onClick={() => props.configure('Feeds')}><span className="icon fa fa-rss" />Feeds</button>
-        <button classList={{'blue selected': props.configuring === 'About' }} onClick={() => props.configure('About')}><span className="icon fa fa-terminal" />About</button>
-        <span className="grow" />
-        <button className="red" onClick={nuke}><span className="fa fa-power-off icon" />Logout</button>
+        <nav className="grow">
+          <button classList={{'blue selected': props.configuring === 'Login' }} onClick={() => props.configure('Login')}><span className="icon fa fa-user-circle" />Login</button>
+          <button classList={{'blue selected': props.configuring === 'General' }} onClick={() => props.configure('General')}><span className="icon fa fa-wrench" />General</button>
+          <button classList={{'blue selected': props.configuring === 'Feeds' }} onClick={() => props.configure('Feeds')}><span className="icon fa fa-rss" />Feeds</button>
+          <button classList={{'blue selected': props.configuring === 'About' }} onClick={() => props.configure('About')}><span className="icon fa fa-terminal" />About</button>
+        </nav>
+        <button className="red" style="color: inherit" onClick={nuke}><span className="fa fa-power-off icon" />Logout</button>
       </aside>
       <section className="grow spread" style="position: relative">
         <Show when={props.configuring === 'Login'}><Login error={props.error} /></Show>

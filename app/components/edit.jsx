@@ -6,19 +6,17 @@ const values = () => [{
 
 const Edit = props =>
   <dialog open onClick={() => props.replace([])}>
-    <section className="dark spread edit" onClick={event => event.stopPropagation()}>
-      <h2 className="center">{props.old.title || 'Subscribe'}</h2>
-      <div>
-        <input id="title" placeholder="Title" type="text" value={props.old.title || ''} />
-        <input id="url" placeholder="Link" type="url" value={props.old.url || ''} />
-        <input id="tags" placeholder="Tags" type="text" value={props.old.tags ? props.old.tags.join(', ') : ''} />
-      </div>
+    <section className="dark edit grow spread">
+      <h2>{props.old.title || 'Subscribe'}</h2>
+      <div><input className="grow" id="title" placeholder="Title" type="text" value={props.old.title || ''} /></div>
+      <div><input className="grow" id="url" placeholder="Link" type="url" value={props.old.url || ''} /></div>
+      <div><input className="grow" id="tags" placeholder="Tags" type="text" value={props.old.tags ? props.old.tags.join(', ') : ''} /></div>
       <div>
         <button className="red" onClick={() => props.replace([], props.old)}><span className="icon fa fa-trash" />Delete</button>
-        <div>
-          <button className="blue" onClick={() => props.replace([])} style="margin: 0 1em"><span className="icon fa fa-times-circle" />Cancel</button>
+        <span>
+          <button className="blue" onClick={() => props.replace([])} style="margin: 1.5em 1em"><span className="icon fa fa-times-circle" />Cancel</button>
           <button className="green" onClick={() => props.replace(values(), props.old)}><span className="icon fa fa-floppy-o" />Save</button>
-        </div>
+        </span>
       </div>
     </section>
   </dialog>
