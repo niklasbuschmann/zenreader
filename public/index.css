@@ -114,6 +114,7 @@ dialog {
   backdrop-filter: blur(12px);
   border: none;
   padding: 6% 0;
+  z-index: 1;
 }
 .light dialog {
   background: rgba(255, 255, 255, 0.2);
