@@ -1417,8 +1417,8 @@ const Github = props => (() => {
   return _el$;
 })();
 
-var _tmpl$$9 = /*#__PURE__*/template(`<h2 class=grow><a href=https://github.com/niklasbuschmann/zenreader target=_blank style=font-size:2em;color:#fff>Zen Reader`),
-  _tmpl$2$4 = /*#__PURE__*/template(`<div><span><span class="fa fa-code"></span><span>&nbsp; with &nbsp;</span><strong style=color:#f45>&lt;3</strong></span><span>Niklas Buschmann</span><span>2015-2025`);
+var _tmpl$$9 = /*#__PURE__*/template(`<h2 class=grow><a href=https://github.com/niklasbuschmann/zenreader target=_blank style=font-size:2em>Zen Reader`),
+  _tmpl$2$4 = /*#__PURE__*/template(`<div><span><span class="fa fa-code"></span>&numsp;with&numsp;<b style=color:#f45>&lt;3</b></span><span>Niklas Buschmann</span><span>2015-2025`);
 const About = props => [createComponent(Github, {
   background: "#46f",
   color: "white",
