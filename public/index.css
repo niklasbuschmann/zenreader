@@ -4,13 +4,18 @@ body {
   margin: 0;
 }
 
+body, dialog {
+  width: 100vw;
+  height: 100vh;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
   transition: 0.2s;
 }
 a:hover {
-  color: rgb(141.5, 142, 146.5);
+  color: #27f;
 }
 header a {
   font-weight: bold;
@@ -89,7 +94,10 @@ article > section {
   cursor: auto;
 }
 article > section a {
-  color: #57f;
+  color: #46f;
+}
+article > section a:hover {
+  text-decoration: underline;
 }
 
 button, input {
@@ -101,7 +109,7 @@ button {
   cursor: pointer;
 }
 button:hover {
-  color: rgb(141.5, 142, 146.5);
+  color: #46f;
 }
 
 aside {
@@ -163,7 +171,7 @@ dialog button:hover {
   color: inherit;
 }
 dialog input:focus {
-  box-shadow: 0 0 0px 1.5px #57f inset;
+  box-shadow: 0 0 0px 1.5px #46f inset;
 }
 
 .light {
@@ -174,11 +182,6 @@ dialog input:focus {
 .dark {
   background: #1c1d26;
   color: #ffffff;
-}
-
-.full {
-  width: 100vw;
-  height: 100vh;
 }
 
 .flex {
@@ -215,7 +218,7 @@ dialog input:focus {
 }
 
 .meta {
-  opacity: 0.6;
+  color: rgb(141.5, 142, 146.5);
 }
 
 .shadow {
@@ -226,16 +229,12 @@ dialog input:focus {
   box-shadow: 0 1px rgba(141.5, 142, 146.5, 0.32);
 }
 
-.subscribe:hover {
-  color: #0d3;
-}
-
 .red:hover, .red.selected {
   background: #f24;
 }
 
 .blue:hover, .blue.selected {
-  background: #57f;
+  background: #46f;
 }
 
 .green:hover, .green.selected {

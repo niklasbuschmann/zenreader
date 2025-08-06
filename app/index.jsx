@@ -1,4 +1,5 @@
 import './index.sass'
+import { createEffect } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { render } from 'solid-js/web';
 import api from './api.jsx';
@@ -53,4 +54,6 @@ window.onunload = () => {
   localStorage.setItem('state', state.settings.cache ? JSON.stringify(state) : '');
 };
 
-render(() => <App {...state} {...actions} selected={state.selected || state.feeds.map(feed => feed.url)} />, document.body)
+createEffect(() => document.body.className =`flex ${state.settings.dark ? 'dark' : 'light'}`);
+
+render(() => <App {...state} {...actions} selected={state.selected || state.feeds.map(feed => feed.url)} />, document.body);

@@ -17,7 +17,7 @@ const Article = props => {
     </header>
     <Show when={open() || props.open}>
       <section onClick={event => event.stopPropagation()}>
-        <div className="flex meta"><span>{props.article.author}</span><button title="mark as unread" className="fa fa-eye-slash" onClick={() => close(false)} /></div>
+        <div className="flex meta">{props.article.author}<button title="mark as unread" className="fa fa-eye-slash" onClick={() => close(false)} /></div>
         <div innerHTML={props.article.content} />
       </section>
     </Show>

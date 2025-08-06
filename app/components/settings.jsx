@@ -11,7 +11,7 @@ const nuke = () => {
 };
 
 const Settings = props =>
-  <dialog className="full" open onClick={() => props.configure(false)}>
+  <dialog open onClick={() => props.configure(false)}>
     <div className="dark settings flex overflow" onClick={event => event.stopPropagation()}>
       <aside className="column">
         <li classList={{'blue selected': props.configuring === 'Login' }} onClick={() => props.configure('Login')}><span className="icon fa fa-user-circle" />Login</li>
