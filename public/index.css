@@ -14,7 +14,7 @@ body, header, footer {
   justify-content: space-between;
 }
 
-main, section, aside, aside nav {
+main, aside, aside nav {
   display: flex;
   flex-direction: column;
 }
@@ -23,10 +23,10 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
-a:hover, section a {
+a:hover, article div a {
   color: #27f;
 }
-section a:hover {
+article div a:hover {
   text-decoration: underline;
 }
 header a {
@@ -132,7 +132,7 @@ article {
 article:hover {
   background: rgba(141.5, 142, 146.5, 0.1);
 }
-article section {
+article div {
   margin: 0.75em 0;
   cursor: auto;
 }
@@ -151,7 +151,6 @@ aside nav button:hover, aside nav button.selected {
 
 main {
   width: 75%;
-  box-shadow: 0 0 0 1px rgba(141.5, 142, 146.5, 0.22);
 }
 main article, main > header {
   padding: 0.75em 2em;
@@ -159,24 +158,27 @@ main article, main > header {
 main > header button {
   margin-left: 3.5em;
 }
+body > main {
+  box-shadow: 0 0 0 1px rgba(141.5, 142, 146.5, 0.22);
+}
 
-dialog section h2 {
+dialog main h2 {
   font-weight: inherit;
   margin: 1.25em auto;
 }
-dialog section div {
+dialog main div {
   margin: 0.5em 2.5em;
 }
-dialog section button, dialog section input {
+dialog main button, dialog main input {
   background: rgba(141.5, 142, 146.5, 0.16);
   border-radius: 5px;
   padding: 0.5em 1.2em;
 }
-dialog section button:hover {
+dialog main button:hover {
   background: rgba(141.5, 142, 146.5, 0.4);
   color: inherit;
 }
-dialog section input:focus {
+dialog main input:focus {
   box-shadow: 0 0 0px 1.5px #46f inset;
 }
 
@@ -249,7 +251,7 @@ dialog section input:focus {
   width: 47em;
   height: 27em;
 }
-.settings section button, .settings section input {
+.settings main button, .settings main input {
   text-align: center;
   width: 3em;
 }

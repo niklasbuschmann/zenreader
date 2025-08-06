@@ -16,10 +16,10 @@ const Article = props => {
       <Time className="gray" time={new Date(props.article.date)} />
     </header>
     <Show when={open() || props.open}>
-      <section onClick={event => event.stopPropagation()}>
+      <div onClick={event => event.stopPropagation()}>
         <header className="gray">{props.article.author}<button title="mark as unread" className="fa fa-eye-slash" onClick={() => close(false)} /></header>
         <div innerHTML={props.article.content} />
-      </section>
+      </div>
     </Show>
   </article>;
 };

@@ -20,16 +20,16 @@ body, header, footer
   display: flex
   justify-content: space-between
 
-main, section, aside, aside nav
+main, aside, aside nav
   display: flex
   flex-direction: column
 
 a
   color: inherit
   text-decoration: inherit
-  &:hover, section &
+  &:hover, article div &
     color: #27f
-  section &:hover
+  article div &:hover
     text-decoration: underline
   header &
     font-weight: bold
@@ -113,7 +113,7 @@ article
   cursor: pointer
   &:hover
     background: reduce(10)
-  section
+  div
     margin: .75em 0
     cursor: auto
 
@@ -128,13 +128,14 @@ aside
 
 main
   width: 75%
-  box-shadow: 0 0 0 1px reduce(22)
   article, > header
     padding: .75em 2em
   > header button
     margin-left: 3.5em
+  body > &
+    box-shadow: 0 0 0 1px reduce(22)
 
-dialog section 
+dialog main
   h2
     font-weight: inherit
     margin: 1.25em auto
@@ -203,6 +204,6 @@ dialog section
   display: flex
   width: 47em
   height: 27em
-  section button, section input
+  main button, main input
     text-align: center
     width: 3em

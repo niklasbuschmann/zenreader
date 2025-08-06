@@ -6,7 +6,7 @@ const values = () => [{
 
 const Edit = props =>
   <dialog open onClick={() => props.replace([])}>
-    <section className="dark edit grow spread">
+    <main className="dark edit spread">
       <h2>{props.old.title || 'Subscribe'}</h2>
       <div><input className="grow" id="title" placeholder="Title" type="text" value={props.old.title || ''} /></div>
       <div><input className="grow" id="url" placeholder="Link" type="url" value={props.old.url || ''} /></div>
@@ -18,7 +18,7 @@ const Edit = props =>
           <button className="green" onClick={() => props.replace(values(), props.old)}><span className="icon fa fa-floppy-o" />Save</button>
         </span>
       </div>
-    </section>
+    </main>
   </dialog>
 
 export default Edit;

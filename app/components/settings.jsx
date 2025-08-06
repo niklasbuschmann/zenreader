@@ -22,12 +22,12 @@ const Settings = props =>
         </nav>
         <button className="red" style="color: inherit" onClick={nuke}><span className="fa fa-power-off icon" />Logout</button>
       </aside>
-      <section className="grow spread" style="position: relative">
+      <main className="spread" style="position: relative">
         <Show when={props.configuring === 'Login'}><Login error={props.error} /></Show>
         <Show when={props.configuring === 'General'}><General set={props.set} settings={props.settings} /></Show>
         <Show when={props.configuring === 'Feeds'}><Feeds set={props.set} settings={props.settings} feeds={props.feeds} add={props.replace} /></Show>
         <Show when={props.configuring === 'About'}><About /></Show>
-      </section>
+      </main>
     </div>
   </dialog>
 

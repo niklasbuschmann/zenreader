@@ -1425,7 +1425,7 @@ const About = props => [createComponent(Github, {
   repo: "niklasbuschmann/zenreader"
 }), _tmpl$$9(), _tmpl$2$4()];
 
-var _tmpl$$8 = /*#__PURE__*/template(`<dialog open><div class="dark settings overflow"><aside><nav class=grow><button><span class="icon fa fa-user-circle"></span>Login</button><button><span class="icon fa fa-wrench"></span>General</button><button><span class="icon fa fa-rss"></span>Feeds</button><button><span class="icon fa fa-terminal"></span>About</button></nav><button class=red style=color:inherit><span class="fa fa-power-off icon"></span>Logout</button></aside><section class="grow spread"style=position:relative>`);
+var _tmpl$$8 = /*#__PURE__*/template(`<dialog open><div class="dark settings overflow"><aside><nav class=grow><button><span class="icon fa fa-user-circle"></span>Login</button><button><span class="icon fa fa-wrench"></span>General</button><button><span class="icon fa fa-rss"></span>Feeds</button><button><span class="icon fa fa-terminal"></span>About</button></nav><button class=red style=color:inherit><span class="fa fa-power-off icon"></span>Logout</button></aside><main class=spread style=position:relative>`);
 const nuke = () => {
   window.onunload = null;
   window.localStorage.clear();
@@ -1690,7 +1690,7 @@ const Header = props => (() => {
 })();
 delegateEvents(["input", "click"]);
 
-var _tmpl$$4 = /*#__PURE__*/template(`<dialog open><section class="dark edit grow spread"><h2></h2><div><input class=grow id=title placeholder=Title type=text></div><div><input class=grow id=url placeholder=Link type=url></div><div><input class=grow id=tags placeholder=Tags type=text></div><div><button class=red><span class="icon fa fa-trash"></span>Delete</button><span><button class=blue style="margin:1.5em 1em"><span class="icon fa fa-times-circle"></span>Cancel</button><button class=green><span class="icon fa fa-floppy-o"></span>Save`);
+var _tmpl$$4 = /*#__PURE__*/template(`<dialog open><main class="dark edit spread"><h2></h2><div><input class=grow id=title placeholder=Title type=text></div><div><input class=grow id=url placeholder=Link type=url></div><div><input class=grow id=tags placeholder=Tags type=text></div><div><button class=red><span class="icon fa fa-trash"></span>Delete</button><span><button class=blue style="margin:1.5em 1em"><span class="icon fa fa-times-circle"></span>Cancel</button><button class=green><span class="icon fa fa-floppy-o"></span>Save`);
 const values = () => [{
   title: document.querySelector('#title').value,
   url: document.querySelector('#url').value,
@@ -1764,7 +1764,7 @@ const Time = ({
   return _el$;
 })();
 
-var _tmpl$$2 = /*#__PURE__*/template(`<section><header class=gray><button title="mark as unread"class="fa fa-eye-slash"></button></header><div>`),
+var _tmpl$$2 = /*#__PURE__*/template(`<div><header class=gray><button title="mark as unread"class="fa fa-eye-slash"></button></header><div>`),
   _tmpl$2$1 = /*#__PURE__*/template(`<article class=shadow><header><span><a target=_blank>`);
 const Article = props => {
   const [open, setState] = createSignal(false);
