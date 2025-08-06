@@ -2,6 +2,8 @@ body {
   font: 16px/1.6 "PT Sans", system-ui, sans-serif;
   font-size: calc(0.9em + 0.2vw);
   margin: 0;
+  background: light-dark(#ffffff, #1c1d26);
+  color: light-dark(#1c1d26, #ffffff);
 }
 
 body, dialog {
@@ -111,16 +113,11 @@ thead, tr:hover {
 }
 
 dialog {
+  background: light-dark(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.6));
   backdrop-filter: blur(12px);
   border: none;
   padding: 6% 0;
   z-index: 1;
-}
-.light dialog {
-  background: rgba(255, 255, 255, 0.2);
-}
-.dark dialog {
-  background: rgba(0, 0, 0, 0.6);
 }
 dialog > * {
   margin: auto;
@@ -181,11 +178,6 @@ dialog main button:hover {
 }
 dialog main input:focus {
   box-shadow: 0 0 0px 1.5px #46f inset;
-}
-
-.light {
-  background: #ffffff;
-  color: #1c1d26;
 }
 
 .dark {

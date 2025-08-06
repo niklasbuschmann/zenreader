@@ -1971,7 +1971,7 @@ api.load().then(updated => {
 window.onunload = () => {
   localStorage.setItem('state', state.settings.cache ? JSON.stringify(state) : '');
 };
-createEffect(() => document.body.className = `flex ${state.settings.dark ? 'dark' : 'light'}`);
+createEffect(() => document.body.style.colorScheme = state.settings.dark ? 'dark' : 'light');
 render(() => createComponent(App, mergeProps(state, actions, {
   get selected() {
     return state.selected || state.feeds.map(feed => feed.url);

@@ -11,6 +11,8 @@ body
   font: 16px / 1.6 "PT Sans", system-ui, sans-serif
   font-size: calc(0.9em + 0.2vw)
   margin: 0
+  background: light-dark($light, $dark)
+  color: light-dark($dark, $light)
 
 body, dialog
   width: 100vw
@@ -98,14 +100,11 @@ thead, tr:hover
   background: reduce(18)
 
 dialog
+  background: light-dark(rgba(255, 255, 255, .2), rgba(0, 0, 0, .6))
   backdrop-filter: blur(12px)
   border: none
   padding: 6% 0
   z-index: 1
-  .light &
-    background: rgba(255, 255, 255, .2)
-  .dark &
-    background: rgba(0, 0, 0, .6)
   > *
     margin: auto
     border-radius: 6px
@@ -151,10 +150,6 @@ dialog main
     color: inherit
   input:focus
     box-shadow: 0 0 0px 1.5px $blue inset
-
-.light
-  background: $light
-  color: $dark
 
 .dark
   background: $dark
