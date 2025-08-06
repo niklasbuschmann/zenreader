@@ -16,7 +16,7 @@ body, dialog
   width: 100vw
   height: 100vh
 
-body, header, footer, nav
+body, header, footer
   display: flex
   justify-content: space-between
 
@@ -92,10 +92,10 @@ table
 
 th, td
   padding: .5em 1em
-  border: 1px solid reduce(24)
+  border: 1px solid reduce(30)
 
 thead, tr:hover
-  background: reduce(12)
+  background: reduce(18)
 
 article
   cursor: pointer
@@ -119,8 +119,8 @@ main
   box-shadow: 0 0 0 1px reduce(22)
   article, > header
     padding: .75em 2em
-  nav
-    width: 10em
+  > header button
+    margin-left: 3.5em
 
 dialog
   padding: 6% 0

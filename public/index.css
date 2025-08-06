@@ -9,7 +9,7 @@ body, dialog {
   height: 100vh;
 }
 
-body, header, footer, nav {
+body, header, footer {
   display: flex;
   justify-content: space-between;
 }
@@ -103,11 +103,11 @@ table {
 
 th, td {
   padding: 0.5em 1em;
-  border: 1px solid rgba(141.5, 142, 146.5, 0.24);
+  border: 1px solid rgba(141.5, 142, 146.5, 0.3);
 }
 
 thead, tr:hover {
-  background: rgba(141.5, 142, 146.5, 0.12);
+  background: rgba(141.5, 142, 146.5, 0.18);
 }
 
 article {
@@ -140,8 +140,8 @@ main {
 main article, main > header {
   padding: 0.75em 2em;
 }
-main nav {
-  width: 10em;
+main > header button {
+  margin-left: 3.5em;
 }
 
 dialog {

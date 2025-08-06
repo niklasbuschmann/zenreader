@@ -4,11 +4,11 @@ const Header = props =>
       <span className="fa fa-search icon" />
       <input type="text" placeholder="search" onInput={event => props.search(event.target.value.toLowerCase())} />
     </div>
-    <nav>
-      <button title="mark all articles as read" onClick={props.markall}><span className="fa fa-eye" /></button>
-      <button title="show read articles" onClick={() => props.set({showread: !props.showread})}><span className={props.showread ? 'fa fa-toggle-on' : 'fa fa-toggle-off'} /></button>
-      <button title="expand articles" onClick={() => props.set({layout: !props.layout})}><span className={props.layout ? 'fa fa-folder-open-o' : 'fa fa-folder-o'} /></button>
-    </nav>
+    <div>
+      <button className="fa fa-eye" title="mark all articles as read" onClick={props.markall} />
+      <button className={props.showread ? 'fa fa-toggle-on' : 'fa fa-toggle-off'} title="show read articles" onClick={() => props.set({showread: !props.showread})} />
+      <button className={props.layout ? 'fa fa-folder-open-o' : 'fa fa-folder-o'} title="expand articles" onClick={() => props.set({layout: !props.layout})} />
+    </div>
   </header>
 
 export default Header;

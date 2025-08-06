@@ -1658,7 +1658,7 @@ const Menu = props => (() => {
 })();
 delegateEvents(["click"]);
 
-var _tmpl$$5 = /*#__PURE__*/template(`<header class=shadow><div><span class="fa fa-search icon"></span><input type=text placeholder=search></div><nav><button title="mark all articles as read"><span class="fa fa-eye"></span></button><button title="show read articles"><span></span></button><button title="expand articles"><span>`);
+var _tmpl$$5 = /*#__PURE__*/template(`<header class=shadow><div><span class="fa fa-search icon"></span><input type=text placeholder=search></div><div><button class="fa fa-eye"title="mark all articles as read"></button><button title="show read articles"></button><button title="expand articles">`);
 const Header = props => (() => {
   var _el$ = _tmpl$$5(),
     _el$2 = _el$.firstChild,
@@ -1667,22 +1667,20 @@ const Header = props => (() => {
     _el$5 = _el$2.nextSibling,
     _el$6 = _el$5.firstChild,
     _el$7 = _el$6.nextSibling,
-    _el$8 = _el$7.firstChild,
-    _el$9 = _el$7.nextSibling,
-    _el$0 = _el$9.firstChild;
+    _el$8 = _el$7.nextSibling;
   _el$4.$$input = event => props.search(event.target.value.toLowerCase());
   addEventListener(_el$6, "click", props.markall, true);
   _el$7.$$click = () => props.set({
     showread: !props.showread
   });
-  _el$9.$$click = () => props.set({
+  _el$8.$$click = () => props.set({
     layout: !props.layout
   });
   createRenderEffect(_p$ => {
     var _v$ = props.showread ? 'fa fa-toggle-on' : 'fa fa-toggle-off',
       _v$2 = props.layout ? 'fa fa-folder-open-o' : 'fa fa-folder-o';
-    _v$ !== _p$.e && (_el$8.className = _p$.e = _v$);
-    _v$2 !== _p$.t && (_el$0.className = _p$.t = _v$2);
+    _v$ !== _p$.e && (_el$7.className = _p$.e = _v$);
+    _v$2 !== _p$.t && (_el$8.className = _p$.t = _v$2);
     return _p$;
   }, {
     e: undefined,
@@ -1868,7 +1866,7 @@ const Articles = props => (() => {
   return _el$2;
 })();
 
-var _tmpl$ = /*#__PURE__*/template(`<main class="grow overflow">`);
+var _tmpl$ = /*#__PURE__*/template(`<main>`);
 const App = props => [createComponent(Show, {
   get when() {
     return props.editing;
