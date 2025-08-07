@@ -1658,7 +1658,7 @@ const Menu = props => (() => {
 })();
 delegateEvents(["click"]);
 
-var _tmpl$$5 = /*#__PURE__*/template(`<header class=shadow><div><span class="fa fa-search icon"></span><input type=text placeholder=search></div><div><button class="fa fa-check-square-o"title="mark all articles as read"></button><button title="show read articles"></button><button title="expand articles">`);
+var _tmpl$$5 = /*#__PURE__*/template(`<header class=shadow><div><span class="fa fa-search icon"></span><input type=text placeholder=search></div><div><button class="fa fa-eye"title="mark all articles as read"></button><button title="show read articles"></button><button title="expand articles">`);
 const Header = props => (() => {
   var _el$ = _tmpl$$5(),
     _el$2 = _el$.firstChild,
