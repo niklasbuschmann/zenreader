@@ -12,7 +12,7 @@ const nuke = () => {
 
 const Settings = props =>
   <dialog open onClick={() => props.configure(false)}>
-    <div className="dark settings overflow" onClick={event => event.stopPropagation()}>
+    <div className="dark settings overflow" onClick={event => event.stopPropagation()} style="width: 47em; height: 27em" >
       <aside>
         <nav className="grow">
           <button classList={{'blue selected': props.configuring === 'Login' }} onClick={() => props.configure('Login')}><span className="icon fa fa-user-circle" />Login</button>

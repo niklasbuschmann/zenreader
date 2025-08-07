@@ -1417,7 +1417,7 @@ const Github = props => (() => {
   return _el$;
 })();
 
-var _tmpl$$9 = /*#__PURE__*/template(`<h2 class=grow><a href=https://github.com/niklasbuschmann/zenreader target=_blank style=font-size:2em>Zen Reader`),
+var _tmpl$$9 = /*#__PURE__*/template(`<header class=grow style=font-size:2em><h2><a href=https://github.com/niklasbuschmann/zenreader target=_blank>Zen Reader`),
   _tmpl$2$4 = /*#__PURE__*/template(`<div><span><span class="fa fa-code"></span>&numsp;with&numsp;<b style=color:#f45>&lt;3</b></span><span>Niklas Buschmann</span><span>2015-2025`);
 const About = props => [createComponent(Github, {
   background: "#46f",
@@ -1425,7 +1425,7 @@ const About = props => [createComponent(Github, {
   repo: "niklasbuschmann/zenreader"
 }), _tmpl$$9(), _tmpl$2$4()];
 
-var _tmpl$$8 = /*#__PURE__*/template(`<dialog open><div class="dark settings overflow"><aside><nav class=grow><button><span class="icon fa fa-user-circle"></span>Login</button><button><span class="icon fa fa-wrench"></span>General</button><button><span class="icon fa fa-rss"></span>Feeds</button><button><span class="icon fa fa-terminal"></span>About</button></nav><button class=red style=color:inherit><span class="fa fa-power-off icon"></span>Logout</button></aside><main class=spread style=position:relative>`);
+var _tmpl$$8 = /*#__PURE__*/template(`<dialog open><div class="dark settings overflow"style=width:47em;height:27em><aside><nav class=grow><button><span class="icon fa fa-user-circle"></span>Login</button><button><span class="icon fa fa-wrench"></span>General</button><button><span class="icon fa fa-rss"></span>Feeds</button><button><span class="icon fa fa-terminal"></span>About</button></nav><button class=red style=color:inherit><span class="fa fa-power-off icon"></span>Logout</button></aside><main class=spread style=position:relative>`);
 const nuke = () => {
   window.onunload = null;
   window.localStorage.clear();
@@ -1554,8 +1554,8 @@ const Favicon = ({
   return _el$2;
 })();
 
-var _tmpl$$6 = /*#__PURE__*/template(`<button class="shadow hover"><span class="icon fa fa-tags"></span><span class=grow></span><span>`),
-  _tmpl$2$2 = /*#__PURE__*/template(`<button class="shadow hover"><span class="grow overflow"></span><span class=show></span><a class="hide fa fa-pencil">`),
+var _tmpl$$6 = /*#__PURE__*/template(`<button class="shadow hover"><span><span class="icon fa fa-tags"></span></span><span>`),
+  _tmpl$2$2 = /*#__PURE__*/template(`<button class="shadow hover"><span class=overflow></span><span class=show></span><a class="hide fa fa-pencil">`),
   _tmpl$3$1 = /*#__PURE__*/template(`<aside><button class=shadow><span class="fa fa-rss icon"></span>Subscribe</button><nav class="grow overflow spread"></nav><footer><button title="switch theme"><span class="fa fa-adjust"></span></button><button title=settings><span>`);
 const tags = feeds => feeds.flatMap(feed => feed.tags).filter((value, index, self) => self.indexOf(value) === index).map(name => ({
   name: name,
@@ -1564,11 +1564,11 @@ const tags = feeds => feeds.flatMap(feed => feed.tags).filter((value, index, sel
 const size = (articles, read) => (articles || []).filter(article => !read[article.id]).length;
 const Category = props => (() => {
   var _el$ = _tmpl$$6(),
-    _el$2 = _el$.firstChild,
-    _el$3 = _el$2.nextSibling,
-    _el$4 = _el$3.nextSibling;
+    _el$2 = _el$.firstChild;
+    _el$2.firstChild;
+    var _el$4 = _el$2.nextSibling;
   addEventListener(_el$, "click", props.select, true);
-  insert(_el$3, () => props.title);
+  insert(_el$2, () => props.title, null);
   insert(_el$4, () => props.count || '');
   createRenderEffect(() => _el$.classList.toggle("selected", !!props.selected));
   return _el$;
@@ -1579,12 +1579,12 @@ const MenuItem = props => (() => {
     _el$7 = _el$6.nextSibling,
     _el$8 = _el$7.nextSibling;
   addEventListener(_el$5, "click", props.select, true);
-  insert(_el$5, createComponent(Favicon, {
+  insert(_el$6, createComponent(Favicon, {
     get src() {
       return props.url;
     }
-  }), _el$6);
-  insert(_el$6, () => props.title);
+  }), null);
+  insert(_el$6, () => props.title, null);
   insert(_el$7, () => props.count || '');
   addEventListener(_el$8, "click", props.edit, true);
   createRenderEffect(() => _el$5.classList.toggle("selected", !!props.selected));
@@ -1690,7 +1690,7 @@ const Header = props => (() => {
 })();
 delegateEvents(["input", "click"]);
 
-var _tmpl$$4 = /*#__PURE__*/template(`<dialog open><main class="dark edit spread"><h2></h2><div><input class=grow id=title placeholder=Title type=text></div><div><input class=grow id=url placeholder=Link type=url></div><div><input class=grow id=tags placeholder=Tags type=text></div><div><button class=red><span class="icon fa fa-trash"></span>Delete</button><span><button class=blue style="margin:1.5em 1em"><span class="icon fa fa-times-circle"></span>Cancel</button><button class=green><span class="icon fa fa-floppy-o"></span>Save`);
+var _tmpl$$4 = /*#__PURE__*/template(`<dialog open><main class="dark spread"style=width:35em><h2></h2><div><input class=grow id=title placeholder=Title type=text></div><div><input class=grow id=url placeholder=Link type=url></div><div><input class=grow id=tags placeholder=Tags type=text></div><div><button class=red><span class="icon fa fa-trash"></span>Delete</button><span><button class=blue style="margin:1.5em 1em"><span class="icon fa fa-times-circle"></span>Cancel</button><button class=green><span class="icon fa fa-floppy-o"></span>Save`);
 const values = () => [{
   title: document.querySelector('#title').value,
   url: document.querySelector('#url').value,
@@ -1766,7 +1766,7 @@ const Time = ({
 })();
 
 var _tmpl$$2 = /*#__PURE__*/template(`<div><header class=gray><button title="mark as unread"class="fa fa-eye-slash"></button></header><div>`),
-  _tmpl$2$1 = /*#__PURE__*/template(`<article class=shadow><header><span><a target=_blank>`);
+  _tmpl$2$1 = /*#__PURE__*/template(`<article class=shadow><header><strong><a target=_blank>`);
 const Article = props => {
   const [open, setState] = createSignal(false);
   const close = isread => {
@@ -1785,7 +1785,6 @@ const Article = props => {
       }
     }), _el$4);
     _el$4.$$click = () => close(true);
-    insert(_el$4, () => props.article.title);
     insert(_el$2, createComponent(Time, {
       className: "gray",
       get time() {
@@ -1810,13 +1809,16 @@ const Article = props => {
     }), null);
     createRenderEffect(_p$ => {
       var _v$ = !!props.isread,
-        _v$2 = props.article.link;
+        _v$2 = props.article.link,
+        _v$3 = props.article.title;
       _v$ !== _p$.e && _el$3.classList.toggle("gray", _p$.e = _v$);
       _v$2 !== _p$.t && setAttribute(_el$4, "href", _p$.t = _v$2);
+      _v$3 !== _p$.a && (_el$4.innerHTML = _p$.a = _v$3);
       return _p$;
     }, {
       e: undefined,
-      t: undefined
+      t: undefined,
+      a: undefined
     });
     return _el$;
   })();

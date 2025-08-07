@@ -10,15 +10,13 @@ const size = (articles, read) => (articles || []).filter(article => !read[articl
 
 const Category = props =>
   <button className="shadow hover" classList={{selected: props.selected}} onClick={props.select}>
-    <span className="icon fa fa-tags" />
-    <span className="grow">{props.title}</span>
+    <span><span className="icon fa fa-tags" />{props.title}</span>
     <span>{props.count || ''}</span>
   </button>
 
 const MenuItem = props =>
   <button className="shadow hover" classList={{selected: props.selected}} onClick={props.select}>
-    <Favicon src={props.url} />
-    <span className="grow overflow">{props.title}</span>
+    <span className="overflow"><Favicon src={props.url} />{props.title}</span>
     <span className="show">{props.count || ''}</span>
     <a className="hide fa fa-pencil" onClick={props.edit} />
   </button>

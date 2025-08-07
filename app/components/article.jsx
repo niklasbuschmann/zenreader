@@ -9,10 +9,10 @@ const Article = props => {
 
   return <article className="shadow" onClick={() => close(true)}>
     <header>
-      <span classList={{gray: props.isread}} >
+      <strong classList={{gray: props.isread}} >
         <Favicon src={props.article.link} />
-        <a href={props.article.link} onClick={() => close(true)} target="_blank">{props.article.title}</a>
-      </span>
+        <a href={props.article.link} onClick={() => close(true)} target="_blank" innerHTML={props.article.title} />
+      </strong>
       <Time className="gray" time={new Date(props.article.date)} />
     </header>
     <Show when={open() || props.open}>

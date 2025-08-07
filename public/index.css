@@ -22,18 +22,13 @@ main, aside, aside nav {
 }
 
 a {
-  color: inherit;
+  color: light-dark(#46f, #27f);
+}
+a:not(:hover), header a {
   text-decoration: inherit;
 }
-a:hover, article div a {
-  color: #27f;
-}
-article div a:hover {
-  text-decoration: underline;
-}
-header a {
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
+header a:not(:hover), aside a:not(:hover) {
+  color: inherit;
 }
 
 button, input {
@@ -44,7 +39,7 @@ button {
   cursor: pointer;
 }
 button:hover {
-  color: #46f;
+  color: light-dark(#46f, #27f);
 }
 
 a, button, article {
@@ -88,8 +83,8 @@ pre {
 
 code:not(pre code) {
   font-size: 0.9em;
-  background: rgba(141.5, 142, 146.5, 0.15);
-  opacity: 0.7;
+  background: rgba(141.5, 142, 146.5, 0.12);
+  color: light-dark(#666, #ddd);
   border-radius: 4px;
   margin: 0 0.1em;
   padding: 0.2em 0.4em;
@@ -117,7 +112,6 @@ dialog {
   backdrop-filter: blur(12px);
   border: none;
   padding: 6% 0;
-  z-index: 1;
 }
 dialog > * {
   margin: auto;
@@ -153,8 +147,8 @@ main {
 main article, main > header {
   padding: 0.75em 2em;
 }
-main > header button {
-  margin-left: 3.5em;
+main header button:not(:first-child, :last-child) {
+  margin: 0 3em;
 }
 body > main {
   box-shadow: 0 0 0 1px rgba(141.5, 142, 146.5, 0.22);
@@ -178,6 +172,10 @@ dialog main button:hover {
 }
 dialog main input:focus {
   box-shadow: 0 0 0px 1.5px #46f inset;
+}
+
+strong, b {
+  -webkit-font-smoothing: antialiased;
 }
 
 .dark {
@@ -235,14 +233,8 @@ dialog main input:focus {
   display: none;
 }
 
-.edit {
-  width: 35em;
-}
-
 .settings {
   display: flex;
-  width: 47em;
-  height: 27em;
 }
 .settings main button, .settings main input {
   text-align: center;

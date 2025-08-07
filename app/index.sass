@@ -27,15 +27,11 @@ main, aside, aside nav
   flex-direction: column
 
 a
-  color: inherit
-  text-decoration: inherit
-  &:hover, article div &
-    color: #27f
-  article div &:hover
-    text-decoration: underline
-  header &
-    font-weight: bold
-    -webkit-font-smoothing: antialiased
+  color: light-dark($blue, #27f)
+  &:not(:hover), header &
+    text-decoration: inherit
+  header &:not(:hover), aside &:not(:hover)
+    color: inherit
 
 button, input
   all: unset
@@ -43,7 +39,7 @@ button, input
 button
   cursor: pointer
   &:hover
-    color: $blue
+    color: light-dark($blue, #27f)
 
 a, button, article
   transition: .2s
@@ -79,8 +75,8 @@ pre
 
 code:not(pre code)
   font-size: .9em
-  background: reduce(15)
-  opacity: .7
+  background: reduce(12)
+  color: light-dark(#666, #ddd)
   border-radius: 4px
   margin: 0 .1em
   padding: .2em .4em
@@ -104,7 +100,6 @@ dialog
   backdrop-filter: blur(12px)
   border: none
   padding: 6% 0
-  z-index: 1
   > *
     margin: auto
     border-radius: 6px
@@ -130,8 +125,8 @@ main
   width: 75%
   article, > header
     padding: .75em 2em
-  > header button
-    margin-left: 3.5em
+  header button:not(:first-child, :last-child)
+    margin: 0 3em
   body > &
     box-shadow: 0 0 0 1px reduce(22)
 
@@ -150,6 +145,9 @@ dialog main
     color: inherit
   input:focus
     box-shadow: 0 0 0px 1.5px $blue inset
+
+strong, b
+  -webkit-font-smoothing: antialiased
 
 .dark
   background: $dark
@@ -193,13 +191,8 @@ dialog main
 .hover:not(:hover) .hide, .hover:hover .show
   display: none
 
-.edit
-  width: 35em
-
 .settings
   display: flex
-  width: 47em
-  height: 27em
   main button, main input
     text-align: center
     width: 3em
