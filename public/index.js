@@ -1658,7 +1658,7 @@ const Menu = props => (() => {
 })();
 delegateEvents(["click"]);
 
-var _tmpl$$5 = /*#__PURE__*/template(`<header class=shadow><div><span class="fa fa-search icon"></span><input type=text placeholder=search></div><div><button class="fa fa-eye"title="mark all articles as read"></button><button title="show read articles"></button><button title="expand articles">`);
+var _tmpl$$5 = /*#__PURE__*/template(`<header class=shadow><div><span class="fa fa-search icon"></span><input type=text placeholder=search></div><div><button class="fa fa-check-square-o"title="mark all articles as read"></button><button title="show read articles"></button><button title="expand articles">`);
 const Header = props => (() => {
   var _el$ = _tmpl$$5(),
     _el$2 = _el$.firstChild,
@@ -1678,7 +1678,7 @@ const Header = props => (() => {
   });
   createRenderEffect(_p$ => {
     var _v$ = props.showread ? 'fa fa-toggle-on' : 'fa fa-toggle-off',
-      _v$2 = props.layout ? 'fa fa-folder-open-o' : 'fa fa-folder-o';
+      _v$2 = props.layout ? 'fa fa-align-justify' : 'fa fa-bars';
     _v$ !== _p$.e && (_el$7.className = _p$.e = _v$);
     _v$2 !== _p$.t && (_el$8.className = _p$.t = _v$2);
     return _p$;
